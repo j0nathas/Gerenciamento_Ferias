@@ -1,0 +1,124 @@
+.Desk {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+    background-color: #ffffff;
+    background-image: radial-gradient(circle, #e2e2e2 1px, transparent 2px);
+    background-size: 35px 35px;
+}
+
+:root {
+    ---shadow-gray: rgb(236, 236, 236);
+    ---border-gray: rgb(212, 212, 212);
+}
+
+.background-red {
+    background-color: rgb(255, 225, 225);
+    color: rgb(223, 0, 0);
+    box-shadow: 5px 7px 1px 3px rgb(255, 193, 193);
+
+}
+
+.background-yellow {
+    background-color: rgb(255, 255, 211);
+    color: rgb(153, 153, 0);
+    box-shadow: 5px 7px 1px 3px rgb(231, 231, 194);
+
+}
+
+.background-on-vacation {
+    background-color: #c8f2fa;
+    color: #00869e;
+    box-shadow: 5px 7px 1px 3px rgb(192, 226, 236);
+}
+
+.background-green {
+    background-color: rgb(220, 255, 211);
+    color: rgb(24, 121, 0);
+    box-shadow: 5px 7px 1px 3px rgb(198, 228, 190);
+}
+
+.flashcards {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border: 5px solid var(---shadow-gray);
+    box-shadow: 9px 9px 1px 1px var(---shadow-gray);
+    transition: 1s;
+}
+
+.flashcards-card {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 0.5rem 2rem;
+}
+
+.flashcards-card {
+    font-weight: 600;
+}
+
+.flashcards-card-text {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.charts {
+    display: inline-flex;
+    height: auto;
+    width: 100%;
+}
+
+.chart {
+    border: 5px solid var(---shadow-gray);
+    box-shadow: 9px 9px 1px 1px var(---shadow-gray);
+    border-radius: 20px;
+    padding: 1rem;
+    background-color: white;
+}
+
+.charts-card {}
+
+tbody {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+}
+
+tr {
+    all: unset;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 1rem;
+}
+
+td {
+    all: unset;
+    text-align: center;
+
+}
+
+.charts-card-quantity {
+    border-radius: 5px;
+    padding: 1rem 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.charts-card-title {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: rgb(128, 128, 128);
+}

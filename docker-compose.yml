@@ -8,7 +8,7 @@ services:
       - ./frontend:/app
       - /app/node_modules
     environment:
-      - VITE_API_URL=http://localhost:3000
+      - VITE_API_URL=http://10.109.133.63:3000
 
   backend:
     build: ./backend

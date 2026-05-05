@@ -1,8 +1,19 @@
+:root {
+    --green: #6ac27e;
+    --yellow: #fffd8ffd;
+    --red: #ff8181;
+    --on-vacation: #c6d3c9;
+}
+
+
 header {
-    width: 98%;
     display: flex;
-    justify-content: space-between;
-    padding: 1%;
+    flex-direction: column;
+    gap: 50px;
+    padding: 2rem;
+    z-index: 1000;
+    background-color: #c6d3c9;
+
 }
 
 .logo-text {
@@ -11,9 +22,8 @@ header {
 
 .selectPageContainer,
 .logo {
-    background-color: #c6d3c9;
-    padding: 1.5rem 2rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -24,14 +34,31 @@ header {
     all: unset;
     background-color: #ffffff;
     border-radius: 20px;
-    padding: 0.3rem;
+    padding: 0.4rem;
+    opacity: 0.9;
     box-shadow: 3px 4px 1px 2px #a3ada6;
+    transition: 0.2s;
+    color: #c6d3c9;
+    cursor: pointer;
+}
+
+.selectPage:hover {
+    transform: translateY(-1px);
+    opacity: 1;
 }
 
 .selectPage:active {
-    all: unset;
     background-color: #ecf3e8;
     border-radius: 20px;
     padding: 0.3rem;
     box-shadow: -3px -4px 1px 2px #a3ada6;
+}
+
+.selectPage.active {
+    color: rgb(255, 255, 255);
+    background-color: #b3c4b7;
+    border-radius: 20px;
+    padding: 0.3rem;
+    transform: translateX(4px) translateY(3px);
+    box-shadow: -3px -4px 1px 2px #9aa79e;
 }

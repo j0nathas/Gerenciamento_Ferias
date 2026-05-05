@@ -1,0 +1,437 @@
+.calendar-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7f5 100%);
+    overflow: hidden;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #c6d3c9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.year-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.year-selector label {
+    color: #89978c;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.year-selector select {
+    padding: 0.5rem 1rem;
+    background-color: #ffffff;
+    color: #89978c;
+    border: 2px solid #89978c;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.year-selector select:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.year-selector select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 151, 140, 0.2);
+}
+
+.sector-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.sector-filter label {
+    color: #89978c;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.sector-checkboxes {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.sector-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #89978c;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.sector-checkbox input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #89978c;
+}
+
+.sector-checkbox span {
+    display: inline-block;
+}
+
+.calendar-wrapper {
+    flex: 1;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    margin: 0.8rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.months-header {
+    display: flex;
+    background-color: #c6d3c9;
+    z-index: 10;
+    flex-shrink: 0;
+    border-bottom: 2px solid #b0bfb2;
+    height: 50px;
+}
+
+.month-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #b0bfb2;
+    padding: 0.5rem;
+    min-width: 40px;
+}
+
+.month-header:last-child {
+    border-right: none;
+}
+
+.month-name {
+    font-weight: 700;
+    color: #89978c;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.months-grid {
+    display: flex;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.month-column {
+    display: flex;
+    border-right: 1px solid #e0e8e2;
+    position: relative;
+    min-width: 40px;
+}
+
+.month-column:last-child {
+    border-right: none;
+}
+
+.month-days {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.week-divider {
+    flex: 1;
+    border-right: 1px dashed #d0d8d2;
+    background: repeating-linear-gradient(to right,
+            transparent,
+            transparent 19px,
+            #f0f2f0 19px,
+            #f0f2f0 20px);
+}
+
+.week-divider:last-child {
+    border-right: none;
+}
+
+.vacation-bars {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.person-vacation-row {
+    flex: 0 0 55px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e0e8e2;
+    padding: 0 2px;
+}
+
+.vacation-bar {
+    position: absolute;
+    height: 40px;
+    background: linear-gradient(135deg, #c6d3c9 0%, #b0bfb2 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(139, 151, 140, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid #89978c;
+    padding: 0 0.6rem;
+    gap: 0.4rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.vacation-bar:hover {
+    box-shadow: 0 4px 12px rgba(139, 151, 140, 0.35);
+    transform: translateY(calc(-50% - 2px));
+}
+
+.vacation-bar.past {
+    background: linear-gradient(135deg, #d4d4d4 0%, #b8b8b8 100%);
+    border-color: #999999;
+    opacity: 0.6;
+}
+
+.vacation-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background-color: #2d3d2e;
+    color: #ffffff;
+    padding: 0.8rem;
+    border-radius: 8px;
+    min-width: 220px;
+    max-width: 280px;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    font-size: 0.85rem;
+    white-space: normal;
+}
+
+.vacation-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d3d2e;
+}
+
+.vacation-tooltip-portal {
+    position: fixed;
+    transform: translate(-50%, -100%);
+    background-color: #2d3d2e;
+    color: #ffffff;
+    padding: 0.8rem;
+    border-radius: 8px;
+    min-width: 220px;
+    max-width: 280px;
+    z-index: 9999;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    font-size: 0.85rem;
+    white-space: normal;
+    margin-top: -8px;
+    pointer-events: none;
+    animation: tooltipFadeIn 0.2s ease;
+}
+
+.vacation-tooltip-portal::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d3d2e;
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-row:last-child {
+    border-bottom: none;
+}
+
+.tooltip-label {
+    font-weight: 600;
+    color: #c6d3c9;
+    min-width: 85px;
+}
+
+.tooltip-value {
+    font-weight: 500;
+    color: #ffffff;
+    text-align: right;
+    word-break: break-word;
+}
+
+.vacation-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+    flex: 1;
+}
+
+.vacation-name {
+    color: #2d3d2e;
+    font-weight: 700;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.1;
+}
+
+.vacation-sector {
+    color: #2d3d2e;
+    font-weight: 600;
+    font-size: 0.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.85;
+    line-height: 1;
+}
+
+.vacation-days {
+    color: #2d3d2e;
+    font-weight: 700;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.today-line {
+    position: absolute;
+    top: 50px;
+    width: 4px;
+    height: calc(100% - 50px);
+    background-color: #ff4444;
+    z-index: 4;
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.6);
+    border-radius: 2px;
+}
+
+/* Scroll customizado */
+.vacation-bars::-webkit-scrollbar {
+    width: 8px;
+}
+
+.vacation-bars::-webkit-scrollbar-track {
+    background: #f5f7f5;
+}
+
+.vacation-bars::-webkit-scrollbar-thumb {
+    background: #c6d3c9;
+    border-radius: 4px;
+}
+
+.vacation-bars::-webkit-scrollbar-thumb:hover {
+    background: #b0bfb2;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+    .calendar-header {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .calendar-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .vacation-name {
+        font-size: 0.65rem;
+    }
+
+    .vacation-sector {
+        display: none;
+    }
+
+    .month-name {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .calendar-container {
+        height: auto;
+    }
+
+    .calendar-wrapper {
+        height: 400px;
+    }
+
+    .vacation-days {
+        font-size: 0.6rem;
+    }
+}
