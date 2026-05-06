@@ -1,0 +1,130 @@
+/* ── Wrapper geral ── */
+.calendar-wrapper {
+    padding: 16px;
+    border-radius: 12px;
+}
+
+/* ── Toggle de ViewMode ── */
+.calendar-view-toggle {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.card-sectors-select-button {
+    all: unset;
+    color: #5f6661;
+    font-weight: 500;
+    padding: 0.5rem 2rem;
+    background-color: #d9e1db;
+    border: 1px solid #a3ada6;
+    border-radius: 20px;
+    box-shadow: 0px 4px 1px 1px #a3ada6;
+    transition: 0.2s;
+}
+
+.card-sectors-select-button:hover {
+    background-color: #e8f8ed;
+    border: 1px solid #c7dacd;
+    box-shadow: 0px 4px 1px 1px #bbd6c2;
+    color: #95aa9b;
+}
+
+.card-sectors-select-button:active {
+    background-color: #e8f8ed;
+    box-shadow: 0px -4px 1px 1px #a3ada6;
+    transform: translateY(4px);
+}
+
+.card-sectors-select-button.active {
+    background-color: #c0ccc4;
+    color: #ffffff;
+    box-shadow: 0px -4px 1px 1px #a3ada6;
+    transform: translateY(4px);
+}
+
+
+/* ── Tooltip ── */
+.gantt-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.gantt-tooltip {
+    background: #0000ff;
+    border: 1px solid #0022ff;
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #f8f8f2;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.gantt-tooltip__title {
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #bd93f9;
+}
+
+.gantt-tooltip__date-start {
+    margin: 2px 0;
+    color: #8be9fd;
+}
+
+.gantt-tooltip__date-end {
+    margin: 2px 0;
+    color: #ffb86c;
+}
+
+.gantt-tooltip__progress-track {
+    background: #44475a;
+    border-radius: 4px;
+    height: 6px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.gantt-tooltip__progress-fill {
+    height: 100%;
+    background: #50fa7b;
+    border-radius: 4px;
+}
+
+.gantt-tooltip__progress-label {
+    margin: 4px 0 0;
+    color: #50fa7b;
+    font-size: 11px;
+}
+
+/* ── Cabeçalho da tabela lateral ── */
+.gantt-list-header {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    background: #ecf0ed;
+    color: #b3c4b7;
+    border-bottom: 2px solid #b3c4b7;
+    padding: 0 12px;
+}
+
+/* ── Linhas da tabela lateral ── */
+.gantt-list-row {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    cursor: pointer;
+    color: #636b65;
+    border-bottom: 1px solid #b3c4b7;
+    transition: background 0.15s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gantt-list-row.selected {
+    background: #b3c4b7;
+    color: #f8f8f2;
+    font-weight: bold;
+    font-size: 0.95rem;
+}

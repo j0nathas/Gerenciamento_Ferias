@@ -3,6 +3,7 @@ import HomeIcon from '/img/home.svg?react'
 import CalendarIcon from '/img/calendar.svg?react'
 import ChartIcon from '/img/chart.svg?react'
 import FormIcon from '/img/form.svg?react'
+import Building from '/img/building.svg?react'
 
 
 import './App.css'
@@ -10,6 +11,7 @@ import HomePage from '../HomePage/HomePage'
 import Calendar from '../Calendar/Calendar'
 import Charts from '../Charts/Charts'
 import Form from '../Form/Form'
+import CalendarReact from '../Teste_calendar/CalendarReact'
 
 export const employers = [
   {
@@ -30,7 +32,7 @@ export const employers = [
   },
   {
     re: 1781, name: 'Victor Fernando Santos Nunes', photo: '/img/1781.avif', shift: 'ADM', startDate: '', endDate: '',
-    aquisitivo_inicio: '2024-11-21', aquisitivo_Final: '2026-11-20', sector: 'LANTERNA', state: 'red',
+    aquisitivo_inicio: '2024-11-21', aquisitivo_Final: '2025-11-20', sector: 'LANTERNA', state: 'red',
   },
   {
     re: 1132, name: 'Fabrício Fonseca', photo: '/img/1132.avif', shift: '1º Turno', startDate: '2026-04-23', endDate: '2026-05-22',
@@ -47,6 +49,42 @@ export const employers = [
   {
     re: 4785, name: 'Arthur Facca', photo: '/img/4785.avif', shift: 'ADM', startDate: '', endDate: '',
     aquisitivo_inicio: '2025-07-15', aquisitivo_Final: '2026-07-14', sector: 'LANTERNA', state: 'green'
+  },
+  {
+    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
+    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
+  },
+  {
+    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
+    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
+  },
+  {
+    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
+    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
+  },
+  {
+    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
+    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
+  },
+  {
+    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
+    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
+  },
+  {
+    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
+    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
+  },
+  {
+    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
+    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
+  },
+  {
+    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
+    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
+  },
+  {
+    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
+    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
   },
 ]
 
@@ -108,6 +146,7 @@ const btnSelect = [
   { id: 'calendar', title: 'Calendário', icon: CalendarIcon },
   { id: 'charts', title: 'Gráfico', icon: ChartIcon },
   { id: 'form', title: 'Formulário', icon: FormIcon },
+  { id: 'calendarReact', title: 'Calendário React', icon: Building },
 ]
 
 function App() {
@@ -121,6 +160,8 @@ function App() {
         return <HomePage />
       case 'calendar':
         return <Calendar />
+      case 'calendarReact':
+        return <CalendarReact />
       case 'charts':
         return <Charts />
       case 'form':
