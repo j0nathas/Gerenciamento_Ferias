@@ -2,13 +2,38 @@
 .calendar-wrapper {
     padding: 16px;
     border-radius: 12px;
+    gap: 10px;
+}
+
+/* Linha superior (ano / mês) */
+.gantt-wrapper [class$="calendarHeader"] {
+    background-color: #1e1e2e;
+    color: #bd93f9;
+    border-bottom: 1px solid #44475a;
+}
+
+/* Células individuais de cada coluna (mês, semana, dia) */
+.gantt-wrapper [class$="calendarBottomText"],
+.gantt-wrapper [class$="calendarTopText"] {
+    fill: #bd93f9 !important;
+    /* SVG usa fill, não color */
+    font-size: 13px !important;
+    font-family: 'Segoe UI', sans-serif !important;
+}
+
+.calendar-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ecf0ed;
+    padding: 1rem;
+    border-radius: 20px;
 }
 
 /* ── Toggle de ViewMode ── */
 .calendar-view-toggle {
     display: flex;
     gap: 8px;
-    margin-bottom: 12px;
 }
 
 .card-sectors-select-button {
@@ -52,33 +77,34 @@
 }
 
 .gantt-tooltip {
-    background: #0000ff;
-    border: 1px solid #0022ff;
+    background: #fafafa;
+    border: 1px solid #e7e7e7;
     border-radius: 8px;
     padding: 10px 14px;
-    color: #f8f8f2;
+    color: #3a3a3a;
     min-width: 180px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.3);
+    gap: 20px;
 }
 
 .gantt-tooltip__title {
     font-weight: 700;
     margin-bottom: 6px;
-    color: #bd93f9;
+    color: #3a3a3a;
 }
 
 .gantt-tooltip__date-start {
     margin: 2px 0;
-    color: #8be9fd;
+    color: #6e6e6e;
 }
 
 .gantt-tooltip__date-end {
     margin: 2px 0;
-    color: #ffb86c;
+    color: #616161;
 }
 
 .gantt-tooltip__progress-track {
-    background: #44475a;
+    background: #ececec;
     border-radius: 4px;
     height: 6px;
     overflow: hidden;
@@ -87,23 +113,26 @@
 
 .gantt-tooltip__progress-fill {
     height: 100%;
-    background: #50fa7b;
+    background: #3baa2c;
     border-radius: 4px;
 }
 
 .gantt-tooltip__progress-label {
     margin: 4px 0 0;
-    color: #50fa7b;
-    font-size: 11px;
+    color: #337543;
+    font-weight: bold;
+    font-size: 13px;
 }
 
 /* ── Cabeçalho da tabela lateral ── */
 .gantt-list-header {
     display: flex;
     align-items: center;
+    font-size: 1rem !important;
     font-weight: 700;
+    min-width: 200px;
     background: #ecf0ed;
-    color: #b3c4b7;
+    color: #859488;
     border-bottom: 2px solid #b3c4b7;
     padding: 0 12px;
 }
@@ -115,6 +144,7 @@
     padding: 0 12px;
     cursor: pointer;
     color: #636b65;
+    min-width: 200px;
     border-bottom: 1px solid #b3c4b7;
     transition: background 0.15s;
     white-space: nowrap;

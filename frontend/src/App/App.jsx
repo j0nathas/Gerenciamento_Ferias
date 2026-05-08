@@ -54,38 +54,6 @@ export const employers = [
     re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
     aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
   },
-  {
-    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
-    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
-  },
-  {
-    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
-    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
-  },
-  {
-    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
-    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
-  },
-  {
-    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
-    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
-  },
-  {
-    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
-    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
-  },
-  {
-    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
-    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
-  },
-  {
-    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
-    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
-  },
-  {
-    re: 2334, name: 'Rogério Silva', photo: '/img/1132.avif', shift: '2º Turno', startDate: '2026-06-23', endDate: '2026-07-22',
-    aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-02-16', sector: 'LANTERNA', state: 'on-vacation'
-  },
 ]
 
 function ajusteDados(employers, state) {
