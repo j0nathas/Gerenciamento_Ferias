@@ -3,6 +3,19 @@
     padding: 16px;
     border-radius: 12px;
     gap: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.gantt-wrapper {
+    flex: 1;
+    min-height: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    border: solid 2px rgb(226, 226, 226);
 }
 
 /* Linha superior (ano / mês) */
@@ -68,13 +81,26 @@
     transform: translateY(4px);
 }
 
+.card-sectors-zoom-button {
+    all: unset;
+    color: #5f6661;
+    padding: 0.2rem;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.card-sectors-zoom-button:active {
+    color: #c1d0c5;
+}
+
+.card-sectors-zoom-button:hover {
+    transform: scale(1.05);
+    color: #7d8780;
+}
+
 
 /* ── Tooltip ── */
-.gantt-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-}
+
 
 .gantt-tooltip {
     background: #fafafa;
