@@ -8,7 +8,6 @@ import Building from '/img/building.svg?react'
 
 import './App.css'
 import HomePage from '../HomePage/HomePage'
-import Calendar from '../Calendar/Calendar'
 import Charts from '../Charts/Charts'
 import Form from '../Form/Form'
 import CalendarReact from '../Teste_calendar/CalendarReact'
@@ -47,7 +46,7 @@ export const employers = [
     aquisitivo_inicio: '2025-07-15', aquisitivo_Final: '2026-07-14', sector: 'LANTERNA', state: 'green'
   },
   {
-    re: 4785, name: 'Arthur Facca', photo: '/img/4785.avif', shift: 'ADM', startDate: '', endDate: '',
+    re: 4785, name: 'Arthur Facca', photo: '/img/4785.avif', shift: '3º Turno', startDate: '', endDate: '',
     aquisitivo_inicio: '2025-07-15', aquisitivo_Final: '2026-07-14', sector: 'LANTERNA', state: 'green'
   },
   {
@@ -111,10 +110,10 @@ export const profilesByState = Object.keys(mapLegend).reduce((acc, state) => {
 
 const btnSelect = [
   { id: 'home', title: 'Home', icon: HomeIcon },
-  { id: 'calendar', title: 'Calendário', icon: CalendarIcon },
+  { id: 'calendarReact', title: 'Calendário React', icon: Building },
   { id: 'charts', title: 'Gráfico', icon: ChartIcon },
   { id: 'form', title: 'Formulário', icon: FormIcon },
-  { id: 'calendarReact', title: 'Calendário React', icon: Building },
+
 ]
 
 function App() {

@@ -38,7 +38,9 @@ function Form() {
         daysVacationFirstUse: false,
         daysVacationSecondUse: false,
         daysVacationThirdUse: false,
-        daysOnVacation: ''
+        daysOnVacation: '',
+        allowance: false,
+        fiftyPercentThirteenth: false,
     });
 
 
@@ -288,6 +290,35 @@ function Form() {
                         </div>
 
 
+
+                    </div>
+
+                    <div className="form-row">
+                        <div className="form-group-checkbox">
+                            <label className="custom-checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="allowance"
+                                    checked={formData.allowance}
+                                    onChange={handleChange}
+                                />
+                                <span className="checkmark"></span>
+                                1/3 em Abono
+                            </label>
+                        </div>
+
+                        <div className="form-group-checkbox">
+                            <label className="custom-checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="fiftyPercentThirteenth"
+                                    checked={formData.fiftyPercentThirteenth}
+                                    onChange={handleChange}
+                                />
+                                <span className="checkmark"></span>
+                                50% 13º salário
+                            </label>
+                        </div>
 
                     </div>
 
