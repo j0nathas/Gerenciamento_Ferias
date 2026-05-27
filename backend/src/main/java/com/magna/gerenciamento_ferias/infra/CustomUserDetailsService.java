@@ -1,4 +1,4 @@
-package com.magna.gerenciamento_ferias.infra.security;
+package com.magna.gerenciamento_ferias.infra;
 
 import com.magna.gerenciamento_ferias.domain.User;
 import com.magna.gerenciamento_ferias.repositories.UserRepository;
