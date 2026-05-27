@@ -3,6 +3,11 @@
     --yellow: #fffd8ffd;
     --red: #ff8181;
     --on-vacation: #c6d3c9;
+    --color-one: #1f4bdb;
+    --color-two: #4a6ae4;
+    --color-three: #7488ed;
+    --color-four: #9ea7f6;
+    --color-five: #c8c5ff;
 }
 
 
@@ -10,9 +15,8 @@ header {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    padding: 2rem;
     z-index: 1000;
-    background-color: #c6d3c9;
+    background-color: #e0e7ff;
 
 }
 
@@ -26,19 +30,22 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
     border-radius: 45px;
+}
+
+.logo {
+    padding: 2rem;
 }
 
 .selectPage {
     all: unset;
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    width: 99%;
+    height: 5rem;
     opacity: 0.9;
-    box-shadow: 3px 4px 1px 2px #a3ada6;
     transition: 0.2s;
-    color: #c6d3c9;
+    color: var(--color-four);
     cursor: pointer;
 }
 
@@ -48,17 +55,17 @@ header {
 }
 
 .selectPage:active {
-    background-color: #ecf3e8;
-    border-radius: 20px;
-    padding: 0.3rem;
-    box-shadow: -3px -4px 1px 2px #a3ada6;
+    border-right: var(--color-five) solid 4px;
 }
 
 .selectPage.active {
     color: rgb(255, 255, 255);
-    background-color: #b3c4b7;
-    border-radius: 20px;
-    padding: 0.3rem;
-    transform: translateX(4px) translateY(3px);
-    box-shadow: -3px -4px 1px 2px #9aa79e;
+    background-color: #d2d0ff;
+    border-right: var(--color-five) solid 4px;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.selectPage-text {
+    flex: 1;
+    text-align: center;
 }

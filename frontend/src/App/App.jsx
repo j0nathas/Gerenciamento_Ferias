@@ -110,7 +110,7 @@ export const profilesByState = Object.keys(mapLegend).reduce((acc, state) => {
 
 const btnSelect = [
   { id: 'home', title: 'Home', icon: HomeIcon },
-  { id: 'calendarReact', title: 'Calendário React', icon: Building },
+  { id: 'calendarReact', title: 'Calendário', icon: CalendarIcon },
   { id: 'charts', title: 'Gráfico', icon: ChartIcon },
   { id: 'form', title: 'Formulário', icon: FormIcon },
 
@@ -142,7 +142,7 @@ function App() {
     <>
       <header>
         <div className="logo">
-          <img src="/img/vacation.svg" width={100} alt="Férias" />
+          <img src="/img/GCF-logo.png" width={100} alt="Férias" />
         </div>
 
         <div className="selectPageContainer">
@@ -150,7 +150,7 @@ function App() {
           {
             btnSelect.map(btn => (
               <button key={btn.id} className={`selectPage ${currentPage === btn.id ? 'active' : ''}`} onClick={() => { setCurrentPage(btn.id) }} title={btn.title}>
-                <btn.icon width={57} height={57} />
+                <btn.icon width={45} height={45} /> <p className='selectPage-text'>{btn.title}</p>
               </button>
             ))
           }
