@@ -1,4 +1,4 @@
-package com.magna.gerenciamento_ferias.infra.security;
+package com.magna.gerenciamento_ferias.infra;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
