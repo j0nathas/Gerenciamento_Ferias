@@ -1,5 +1,8 @@
+@import url('https://fontlibrary.org');
+
 #root {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
 }
@@ -11,11 +14,12 @@ body {
 }
 
 .container-img-profile {
-    all: unset;
-    width: 100px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     overflow: hidden;
-    border-radius: 20px;
+    margin: 0;
+    flex-shrink: 0;
 }
 
 .container-img-profile img {
