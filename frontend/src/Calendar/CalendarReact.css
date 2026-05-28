@@ -38,10 +38,24 @@
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #ecf0ed;
+    background-color: #b8bef3;
     padding: 1rem;
     border-radius: 20px;
 }
+
+.card-sectors-select-button {
+    all: unset;
+    background-color: #e7eaff;
+    padding: 0.6rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.01);
+}
+
+.card-sectors-select-button:hover {}
+
+.card-sectors-select-button:active {}
+
+.card-sectors-select-button.active {}
 
 /* ── Toggle de ViewMode ── */
 .calendar-view-toggle {
@@ -49,41 +63,9 @@
     gap: 8px;
 }
 
-.card-sectors-select-button {
-    all: unset;
-    color: #5f6661;
-    font-weight: 500;
-    padding: 0.5rem 2rem;
-    background-color: #d9e1db;
-    border: 1px solid #a3ada6;
-    border-radius: 20px;
-    box-shadow: 0px 4px 1px 1px #a3ada6;
-    transition: 0.2s;
-}
-
-.card-sectors-select-button:hover {
-    background-color: #e8f8ed;
-    border: 1px solid #c7dacd;
-    box-shadow: 0px 4px 1px 1px #bbd6c2;
-    color: #95aa9b;
-}
-
-.card-sectors-select-button:active {
-    background-color: #e8f8ed;
-    box-shadow: 0px -4px 1px 1px #a3ada6;
-    transform: translateY(4px);
-}
-
-.card-sectors-select-button.active {
-    background-color: #c0ccc4;
-    color: #ffffff;
-    box-shadow: 0px -4px 1px 1px #a3ada6;
-    transform: translateY(4px);
-}
-
 .card-sectors-zoom-button {
     all: unset;
-    color: #5f6661;
+    color: #1f4bdb;
     padding: 0.2rem;
     transition: 0.2s;
     cursor: pointer;
@@ -157,9 +139,9 @@
     font-size: 1rem !important;
     font-weight: 700;
     min-width: 200px;
-    background: #ecf0ed;
-    color: #859488;
-    border-bottom: 2px solid #b3c4b7;
+    background: #c8c5ff;
+    color: #4a6ae4;
+    border-bottom: 2px solid #4a6ae4;
     padding: 0 12px;
 }
 

@@ -14,6 +14,7 @@ const getReturnDate = (endDate) => {
 function HomePage() {
   const [selectedProfile, setSelectedProfile] = useState(null)
   const [activeShift, setActiveShift] = useState('Geral')
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   const shifts = useMemo(() => {
     const uniqueShifts = [...new Set(employers.map(e => e.shift))];
@@ -44,12 +45,41 @@ function HomePage() {
     'red': { label: 'Segundo vencimento próximo' }
   }
 
+  const handleShiftSelect = (shift) => {
+    setActiveShift(shift);
+    setIsDropdownOpen(false); // Fecha a lista ao selecionar
+  }
+
   return (
     <>
       <main className="home-page">
         <nav className="card-sectors">
-          <div className='card-sectors-head'>
-            <h2 className="card-sectors-title">FÉRIAS</h2>
+          <div className='card-sectors-select'>
+            <p className='card-sectores-select-text'>Selecionado:</p>
+
+            <div className="dropdown-container">
+              <button
+                className="dropdown-button"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                {activeShift}
+                <span className={`arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
+              </button>
+
+              {isDropdownOpen && (
+                <ul className="dropdown-list">
+                  {shifts.map(shift => (
+                    <li
+                      key={shift}
+                      className={`dropdown-item ${activeShift === shift ? 'active' : ''}`}
+                      onClick={() => handleShiftSelect(shift)}
+                    >
+                      {shift}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
             <section>
               {Object.entries(mapLegend).map(([key, { label }]) => (
                 <article className='legend' key={key}>
@@ -58,19 +88,6 @@ function HomePage() {
                 </article>
               ))}
             </section>
-          </div>
-
-          <div className='card-sectors-select'>
-            <p className='card-sectores-select-text'>Selecione por:</p>
-            {shifts.map(shift => (
-              <button
-                key={shift}
-                className={`card-sectors-select-button ${activeShift === shift ? 'active' : ''}`}
-                onClick={() => setActiveShift(shift)}
-              >
-                {shift}
-              </button>
-            ))}
           </div>
 
           <div className="card-sectors-profiles">

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import HomeIcon from '/img/home.svg?react'
 import CalendarIcon from '/img/calendar.svg?react'
 import ChartIcon from '/img/chart.svg?react'
@@ -10,7 +11,7 @@ import './App.css'
 import HomePage from '../HomePage/HomePage'
 import Charts from '../Charts/Charts'
 import Form from '../Form/Form'
-import CalendarReact from '../Teste_calendar/CalendarReact'
+import CalendarReact from '../Calendar/CalendarReact'
 
 export const employers = [
   {
@@ -109,57 +110,51 @@ export const profilesByState = Object.keys(mapLegend).reduce((acc, state) => {
 
 
 const btnSelect = [
-  { id: 'home', title: 'Home', icon: HomeIcon },
-  { id: 'calendarReact', title: 'Calendário', icon: CalendarIcon },
-  { id: 'charts', title: 'Gráfico', icon: ChartIcon },
-  { id: 'form', title: 'Formulário', icon: FormIcon },
-
+  { id: 1, path: '/home', title: 'Home', icon: HomeIcon },
+  { id: 2, path: '/calendar', title: 'Calendário', icon: CalendarIcon },
+  { id: 3, path: '/charts', title: 'Gráfico', icon: ChartIcon },
+  { id: 4, path: '/form', title: 'Formulário', icon: FormIcon },
 ]
 
-function App() {
+function Layout() {
 
-
-  const [currentPage, setCurrentPage] = useState('home')
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <HomePage />
-      case 'calendar':
-        return <Calendar />
-      case 'calendarReact':
-        return <CalendarReact />
-      case 'charts':
-        return <Charts />
-      case 'form':
-        return <Form />
-      default:
-        return <HomePage />
-    }
-  }
+  const navigate = useNavigate("/home")
+  const location = useLocation()
 
   return (
-    <>
-      <header>
-        <div className="logo">
-          <img src="/img/GCF-logo.png" width={100} alt="Férias" />
-        </div>
+    <div className="mainContainer">
 
-        <div className="selectPageContainer">
+      <div className="selectPageContainer">
 
-          {
-            btnSelect.map(btn => (
-              <button key={btn.id} className={`selectPage ${currentPage === btn.id ? 'active' : ''}`} onClick={() => { setCurrentPage(btn.id) }} title={btn.title}>
-                <btn.icon width={45} height={45} /> <p className='selectPage-text'>{btn.title}</p>
-              </button>
-            ))
-          }
+        {
+          btnSelect.map((btn) => (
+            <button
+              key={btn.id}
+              className={`selectPage ${location.pathname === btn.path ? 'active' : ''}`}
+              onClick={() => navigate(btn.path)}
+              title={btn.title}
+            >
+              <btn.icon width={45} height={45} />
+            </button>
+          ))
+        }
 
-        </div>
-      </header>
+      </div>
 
-      {renderPage()}
-    </>
+      <Routes>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/calendar" element={<CalendarReact />} />
+        <Route path="/charts" element={<Charts />} />
+        <Route path="/form" element={<Form />} />
+      </Routes>
+
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <Layout />
   )
 }
 

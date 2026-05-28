@@ -64,7 +64,7 @@
 .legend-text {
     margin: 0;
     font-size: 0.95rem;
-    color: #2d3d2e;
+    color: #2d2f3d;
     font-weight: 500;
 }
 
@@ -78,40 +78,71 @@
     border-bottom: 2px solid rgb(216, 216, 216);
 }
 
-.card-sectores-select-text {
-    margin: 0;
+.dropdown-container {
+    position: relative;
+    width: 200px;
 }
 
-.card-sectors-select-button {
-    all: unset;
-    color: #5f6661;
-    font-weight: 500;
-    padding: 0.5rem 2rem;
-    background-color: #d9e1db;
-    border: 1px solid #a3ada6;
+.dropdown-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-    box-shadow: 0px 4px 1px 1px #a3ada6;
-    transition: 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-.card-sectors-select-button:hover {
-    background-color: #e8f8ed;
-    border: 1px solid #c7dacd;
-    box-shadow: 0px 4px 1px 1px #bbd6c2;
-    color: #95aa9b;
+.dropdown-button:hover {
+    background-color: #e3e9ff;
+    border: #cbd1ff solid 2px;
 }
 
-.card-sectors-select-button:active {
-    background-color: #e8f8ed;
-    box-shadow: 0px -4px 1px 1px #a3ada6;
-    transform: translateY(4px);
+
+.arrow {
+    font-size: 13px;
+    transition: transform 0.3s;
+    color: #4362f8;
 }
 
-.card-sectors-select-button.active {
-    background-color: #c0ccc4;
-    color: #ffffff;
-    box-shadow: 0px -4px 1px 1px #a3ada6;
-    transform: translateY(4px);
+.arrow.open {
+    transform: rotate(180deg);
+    color: #798fff;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-item.active {
+    background-color: #7488ed;
+    color: white;
 }
 
 .card-sectors {
@@ -139,7 +170,8 @@
 }
 
 .card-sectors-profiles-vacation {
-    background-color: #b3c4b7;
+    background-color: #e7eaff;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.01);
     border-radius: 50px;
     display: inline-flex;
     flex-wrap: wrap;
@@ -201,21 +233,6 @@
 .text-profile p {
     margin: 0;
     font-size: 0.9rem;
-}
-
-.container-img-profile {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0;
-    flex-shrink: 0;
-}
-
-.container-img-profile img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 /* Customização do scrollbar */

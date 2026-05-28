@@ -2,7 +2,7 @@
     --green: #6ac27e;
     --yellow: #fffd8ffd;
     --red: #ff8181;
-    --on-vacation: #c6d3c9;
+    --on-vacation: #749aed;
     --color-one: #1f4bdb;
     --color-two: #4a6ae4;
     --color-three: #7488ed;
@@ -10,27 +10,25 @@
     --color-five: #c8c5ff;
 }
 
-
-header {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    z-index: 1000;
-    background-color: #e0e7ff;
-
+.mainContainer {
+    display: inline-flex;
+    flex: 1;
 }
 
 .logo-text {
     margin: 0;
 }
 
-.selectPageContainer,
-.logo {
+.selectPageContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    border-radius: 45px;
+    background-color: #132769;
+    width: max-content;
+    width: 5%;
+    z-index: 1;
+    box-shadow: 2px 0px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -39,31 +37,37 @@ header {
 
 .selectPage {
     all: unset;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    width: 99%;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    width: 100%;
     height: 5rem;
-    opacity: 0.9;
+    opacity: 0.7;
     transition: 0.2s;
-    color: var(--color-four);
+    color: #a3b7fa;
     cursor: pointer;
 }
 
 .selectPage:hover {
-    transform: translateY(-1px);
     opacity: 1;
+    background: rgb(41, 57, 148);
+    color: #ffffff;
 }
 
 .selectPage:active {
-    border-right: var(--color-five) solid 4px;
+    color: #dadada;
 }
 
 .selectPage.active {
-    color: rgb(255, 255, 255);
-    background-color: #d2d0ff;
-    border-right: var(--color-five) solid 4px;
-    border-radius: 20px 20px 20px 20px;
+    color: #ffffff;
+    background: rgb(51, 70, 179);
+    border-left: 6px solid var(--color-five);
+    opacity: 1;
 }
+
+
 
 .selectPage-text {
     flex: 1;
