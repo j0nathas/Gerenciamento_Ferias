@@ -5,6 +5,8 @@ import CalendarIcon from '/img/calendar.svg?react'
 import ChartIcon from '/img/chart.svg?react'
 import FormIcon from '/img/form.svg?react'
 import Building from '/img/building.svg?react'
+import Header from '../Header/Header.jsx'
+
 
 
 import './App.css'
@@ -122,33 +124,37 @@ function Layout() {
   const location = useLocation()
 
   return (
-    <div className="mainContainer">
+    <>
+      <Header />
 
-      <div className="selectPageContainer">
+      <div className="mainContainer">
 
-        {
-          btnSelect.map((btn) => (
-            <button
-              key={btn.id}
-              className={`selectPage ${location.pathname === btn.path ? 'active' : ''}`}
-              onClick={() => navigate(btn.path)}
-              title={btn.title}
-            >
-              <btn.icon width={45} height={45} />
-            </button>
-          ))
-        }
+        <div className="selectPageContainer">
+
+          {
+            btnSelect.map((btn) => (
+              <button
+                key={btn.id}
+                className={`selectPage ${location.pathname === btn.path ? 'active' : ''}`}
+                onClick={() => navigate(btn.path)}
+                title={btn.title}
+              >
+                <btn.icon width={45} height={45} />
+              </button>
+            ))
+          }
+
+        </div>
+
+        <Routes>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/calendar" element={<CalendarReact />} />
+          <Route path="/charts" element={<Charts />} />
+          <Route path="/form" element={<Form />} />
+        </Routes>
 
       </div>
-
-      <Routes>
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/calendar" element={<CalendarReact />} />
-        <Route path="/charts" element={<Charts />} />
-        <Route path="/form" element={<Form />} />
-      </Routes>
-
-    </div>
+    </>
   )
 }
 

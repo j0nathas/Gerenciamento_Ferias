@@ -75,22 +75,6 @@ export default function CalendarReact() {
     const controlsRef = useRef(null);
     const [ganttHeight, setGanttHeight] = useState(0);
 
-    useEffect(() => {
-        const updateHeight = () => {
-            if (calendarRef.current && controlsRef.current) {
-                const available = calendarRef.current.clientHeight;
-                const controls = controlsRef.current.offsetHeight;
-                const gap = 10;
-                const padding = 32;
-                setGanttHeight(available - controls - gap - padding);
-            }
-        };
-
-        const observer = new ResizeObserver(updateHeight);
-        if (calendarRef.current) observer.observe(calendarRef.current);
-        return () => observer.disconnect();
-    }, []);
-
     const handleTaskClick = (task) => {
         const employer = employers.find(e => String(e.re) === String(task.id.split('-')[0]));
         if (employer) setSelectedEmployer(employer);
