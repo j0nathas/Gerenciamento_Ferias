@@ -3,25 +3,35 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import App from '../App/App.jsx'
 import Login from '../Login/Login.jsx'
+import { AuthProvider, useAuth } from '../context/AuthContext.jsx'
 
-function RotaProtegida({ logado, children }) {
-  return logado ? children : <Navigate to="/login" replace />;
+function RotaProtegida({ children }) {
+  const { authenticated, loading } = useAuth();
+
+  if (loading) return <div>Carregando...</div>;
+
+  if (!authenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
 }
 
 function Root() {
-  const [logado, setLogado] = useState(false);
-
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login onLogin={() => setLogado(true)} />} />
-        <Route path="/*" element={
-          <RotaProtegida logado={logado}>
-            <App />
-          </RotaProtegida>
-        } />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+
+          <Route path="/*" element={
+            <RotaProtegida>
+              <App />
+            </RotaProtegida>
+          } />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
