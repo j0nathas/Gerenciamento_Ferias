@@ -15,6 +15,7 @@ import Charts from '../Charts/Charts'
 import Form from '../Form/Form'
 import CalendarReact from '../Calendar/CalendarReact'
 
+
 export const employers = [
   {
     re: 1835, name: 'Jonathas Santos de Oliveira', shift: 'ADM', photo: '/img/1835.avif', startDate: '', endDate: '',
@@ -146,13 +147,14 @@ function Layout() {
 
         </div>
 
+
+
         <Routes>
           <Route path="/home" element={<HomePage />} />
           <Route path="/calendar" element={<CalendarReact />} />
           <Route path="/charts" element={<Charts />} />
           <Route path="/form" element={<Form />} />
         </Routes>
-
       </div>
     </>
   )

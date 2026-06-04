@@ -6,4 +6,118 @@
     --bg-white: #ffffff;
     --border-gray: #e0e8e2;
     --shadow-light: rgba(139, 151, 140, 0.1);
+    --navy: #1a2456;
+    --navy-light: #243070;
+    --blue: #2d4fd6;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    margin: 20px;
+    flex: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.116);
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-header {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, var(--blue) 100%);
+    padding: 20px 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    gap: 5px;
+}
+
+.form-header::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+.form-header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    right: 80px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(74, 106, 244, 0.18);
+    pointer-events: none;
+}
+
+.form-header h1 {
+    color: rgb(190, 190, 255);
+    font-size: 24px;
+    margin: 0;
+}
+
+.form-header p {
+    color: rgb(231, 231, 255);
+    font-size: 16px;
+    margin: 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 30px;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: var(--primary-dark);
+}
+
+.form-group input,
+.form-group select {
+    padding: 15px;
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 15px;
+}
+
+.readOnly {
+    background-color: rgb(231, 235, 255);
+    color: rgb(148, 164, 243);
+    font-weight: bold;
+}
+
+.readOnly::placeholder {
+    color: rgb(148, 164, 243);
+}
+
+.signature-area {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 24px;
 }

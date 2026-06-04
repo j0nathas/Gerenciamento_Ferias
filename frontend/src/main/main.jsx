@@ -6,7 +6,7 @@ import Login from '../Registration/Login/Login.jsx'
 import Register from '../Registration/Register/Register.jsx'
 import Loading from './loading/Loading.jsx'
 import { AuthProvider, useAuth } from '../context/AuthContext.jsx'
-import PageTransition from '../PageTransition/PageTransition.jsx'
+import PageTransition from '../PageTransition/Registration/RegistrationTransition.jsx'
 
 function RotaProtegida({ children }) {
   const { authenticated, loading } = useAuth();
@@ -36,27 +36,25 @@ function Root() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <PageTransition>
-          <Routes>
-            <Route path="/login" element={
-              <RotaPublica>
-                <Login />
-              </RotaPublica>
-            } />
+        <Routes>
+          <Route path="/login" element={
+            <RotaPublica>
+              <PageTransition><Login /></PageTransition>
+            </RotaPublica>
+          } />
 
-            <Route path="/register" element={
-              <RotaPublica>
-                <Register />
-              </RotaPublica>
-            } />
+          <Route path="/register" element={
+            <RotaPublica>
+              <PageTransition><Register /></PageTransition>
+            </RotaPublica>
+          } />
 
-            <Route path="/*" element={
-              <RotaProtegida>
-                <App />
-              </RotaProtegida>
-            } />
-          </Routes>
-        </PageTransition>
+          <Route path="/*" element={
+            <RotaProtegida>
+              <App />
+            </RotaProtegida>
+          } />
+        </Routes>
       </BrowserRouter>
     </AuthProvider>
   );

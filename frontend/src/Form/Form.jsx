@@ -102,7 +102,7 @@ function Form() {
             },
 
             daysOnVacation: () => {
-                const days = Math.min(Math.max(Number(value), 0), 60);
+                const days = Math.min(Math.max(Number(value), 0), 30);
                 setFormData(prev => ({
                     ...prev,
                     daysOnVacation: days,
@@ -346,11 +346,7 @@ function Form() {
 
 
                         <input type="button" value="Reiniciar" onClick={reset} />
-                        <input
-                            type="button"
-                            value="Salvar assinatura"
-                            onClick={onGetImage}
-                        />
+                        <input type="button" value="Salvar assinatura" onClick={onGetImage} />
 
 
                     </div>
