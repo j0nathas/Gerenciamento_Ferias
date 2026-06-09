@@ -75,6 +75,8 @@ export default function CalendarReact() {
     const controlsRef = useRef(null);
     const [ganttHeight, setGanttHeight] = useState(0);
 
+
+
     const handleTaskClick = (task) => {
         const employer = employers.find(e => String(e.re) === String(task.id.split('-')[0]));
         if (employer) setSelectedEmployer(employer);
@@ -163,15 +165,15 @@ export default function CalendarReact() {
                         onClick={editMode ? null : handleTaskClick}
                         TaskListHeader={CustomTaskListHeader}
                         TaskListTable={CustomTaskListTable}
-                        todayColor={editMode ? "#cacadb6c" : "#cadbcf6c"}
+                        todayColor={editMode ? "#cadbcf6c" : "#cacadb6c"}
                         columnWidth={view.columnWidth}
                         handleWidth={editMode ? 8 : 0}
                         onDateChange={editMode
                             ? (task) => setEmployees(prev => prev.map(t => t.id === task.id ? task : t))
                             : null}
-                        barProgressColor={editMode ? "rgb(108, 111, 156)" : "rgb(108,156,119)"}
-                        barProgressSelectedColor={editMode ? "rgb(70, 78, 197)" : "rgb(66, 99, 74)"}
-                        barBackgroundSelectedColor={editMode ? "rgb(144, 151, 255)" : "rgb(163, 180, 167)"}
+                        barProgressColor={editMode ? "rgb(108,156,119)" : "rgb(108,111,156)"}
+                        barProgressSelectedColor={editMode ? "rgb(66, 99, 74)" : "rgb(70, 78, 197)"}
+                        barBackgroundSelectedColor={editMode ? "rgb(163, 180, 167)" : "rgb(144, 151, 255)"}
                         TooltipContent={CustomTooltip}
                     />
                 </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext.jsx';
+import { useAuth } from '../../context/AuthContext.jsx';
 import './Login.css';
 
 export default function Login() {
@@ -86,7 +86,7 @@ export default function Login() {
                 <p className='developerInfo'>Desenvolvido por: <strong>Jonathas Oliveira</strong></p>
             </aside>
 
-            <img src='/img/loginImage.png' width={600} alt="Login Image" />
+            <img src='/img/loginImage.png' width={500} alt="Login Image" className="loginImage" />
         </div>
     );
 }

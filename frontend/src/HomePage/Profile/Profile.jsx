@@ -33,6 +33,8 @@ function Profile({ photo, name, returnDate, state, onProfileClick, ...rest }) {
                 <img
                     src={visible ? photo : '/img/placeholder.avif'}
                     alt={`Foto de ${name}`}
+                    loading="lazy"
+                    decoding="async"
                 />
             </figure>
 

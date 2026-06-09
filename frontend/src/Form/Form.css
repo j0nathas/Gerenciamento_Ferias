@@ -6,4 +6,184 @@
     --bg-white: #ffffff;
     --border-gray: #e0e8e2;
     --shadow-light: rgba(139, 151, 140, 0.1);
+    --navy: #1a2456;
+    --navy-light: #243070;
+    --blue: #2d4fd6;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    margin: 20px;
+    flex: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.116);
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-header {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, var(--blue) 100%);
+    padding: 20px 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    gap: 5px;
+}
+
+.form-header::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+.form-header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    right: 80px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(74, 106, 244, 0.18);
+    pointer-events: none;
+}
+
+.form-header h1 {
+    color: rgb(190, 190, 255);
+    font-size: 24px;
+    margin: 0;
+}
+
+.form-header p {
+    color: rgb(231, 231, 255);
+    font-size: 16px;
+    margin: 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: var(--primary-dark);
+}
+
+
+.form-group-input,
+.readOnly {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 15px;
+    border: 2px solid rgb(231, 231, 231);
+    border-radius: 15px;
+    box-shadow: 6px 6px 0px 1px rgba(0, 0, 0, 0.05);
+}
+
+
+.form-group-input:focus {
+    border: 2px solid rgb(189, 148, 243);
+    background-color: rgb(251, 250, 253);
+    outline: none;
+    box-shadow: 6px 6px 0px 1px rgba(139, 22, 235, 0.05);
+}
+
+
+.readOnly {
+    background-color: rgb(231, 235, 255);
+    color: rgb(148, 164, 243);
+    font-weight: bold;
+    cursor: no-drop;
+}
+
+.readOnly:focus {
+    outline: none;
+    border: 1px solid rgb(16, 52, 212);
+}
+
+.readOnly::placeholder {
+    color: rgb(148, 164, 243);
+}
+
+.signature-wrapper {
+    height: 100%;
+    border: 3px dotted rgb(189, 186, 240);
+    background-color: rgb(253, 253, 253);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.signature-area {
+    display: grid;
+    grid-template-columns: AUTO AUTO;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.signature-area-save {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 600px;
+    border-radius: 15px;
+    border: 1px solid rgb(240, 240, 240);
+    background-color: rgb(243, 243, 255);
+    color: rgb(79, 79, 231);
+}
+
+.signature-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form-btn {
+    padding: 12px 30px;
+    background-color: rgb(79, 79, 231);
+    color: rgb(230, 230, 255);
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-btn-submit {
+    all: unset;
+    margin-top: 10px;
+    padding: 30px 30px;
+    align-self: end;
+    background-color: rgb(79, 79, 231);
+    border-radius: 25px;
+    color: rgb(230, 230, 255);
 }

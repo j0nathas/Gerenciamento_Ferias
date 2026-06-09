@@ -1,10 +1,7 @@
 import { employers } from "../App/App";
 import { useEffect, useRef } from "react";
-import Chart from "chart.js/auto";
 import './Charts.css'
-import ChartDataLabels from "chartjs-plugin-datalabels";
 
-Chart.register(ChartDataLabels);
 
 function ajusteDados(employers, state) {
     const groups = {};
@@ -63,65 +60,6 @@ function Charts() {
 
         const maxValue = Math.max(...allQuantities);
 
-
-        const chart = new Chart(canvasRef.current, {
-            type: "bar",
-            options: {
-                maintainAspectRatio: true,
-                animation: true,
-                plugins: {
-                    datalabels: {
-                        display: (context) => context.dataset.data[context.dataIndex] > 0,
-                        anchor: "start",
-                        align: "center",
-                        font: { size: 20, weight: "bold" }
-                    }
-                },
-                scales: {
-                    y: {
-                        min: 0,
-                        max: maxValue + 1,
-                    }
-                }
-            },
-            data: {
-                labels: dataVacation.map((row) => row.shift),
-                datasets: [{
-                    label: "Em Férias",
-                    data: dataVacation.map((row) => row.quantity),
-                    backgroundColor: "#c8f2fa",
-                    borderColor: "rgb(170, 235, 255)",
-                    borderWidth: 5,
-                    borderRadius: 5,
-                    hoverBackgroundColor: "#b3f4ff",
-                    datalabels: { color: "#00869e" }
-                }, {
-                    label: "2º Vencimento Próximo",
-                    data: dataRed.map((row) => row.quantity),
-                    backgroundColor: "rgb(255, 225, 225)",
-                    borderColor: "rgb(255, 193, 193)",
-                    borderWidth: 5,
-                    borderRadius: 5,
-                    hoverBackgroundColor: "rgb(255, 193, 193)",
-                    datalabels: { color: "rgb(223, 0, 0)" }
-                },
-                {
-                    label: "Primeiro Vencimento",
-                    data: dataYellow.map((row) => row.quantity),
-                    backgroundColor: "rgb(255, 255, 211)",
-                    borderColor: "rgb(231, 231, 194)",
-                    borderWidth: 5,
-                    borderRadius: 5,
-                    hoverBackgroundColor: "rgb(247, 247, 166)",
-                    datalabels: { color: "rgb(153, 153, 0)" }
-                }],
-            },
-        });
-
-        return () => {
-            chart.destroy();
-        };
-
     }, []);
 
 
@@ -174,10 +112,6 @@ function Charts() {
                             </tbody>
                         </table>
                     </div>
-
-
-                    <div className="chart" style={{ width: "40%" }}><canvas ref={canvasRef} /></div >
-
 
                 </section>
 

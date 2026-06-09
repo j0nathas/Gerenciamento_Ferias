@@ -102,7 +102,7 @@ function Form() {
             },
 
             daysOnVacation: () => {
-                const days = Math.min(Math.max(Number(value), 0), 60);
+                const days = Math.min(Math.max(Number(value), 0), 30);
                 setFormData(prev => ({
                     ...prev,
                     daysOnVacation: days,
@@ -139,6 +139,7 @@ function Form() {
                         <div className="form-group">
                             <label htmlFor="re">RE</label>
                             <input
+                                className={'form-group-input'}
                                 type="number"
                                 id="re"
                                 name="re"
@@ -193,6 +194,7 @@ function Form() {
                         <div className="form-group">
                             <label htmlFor="startDate">Data de Início</label>
                             <input
+                                className={'form-group-input'}
                                 type="date"
                                 id="startDate"
                                 name="startDate"
@@ -219,7 +221,7 @@ function Form() {
                         <div className="form-group">
                             <label htmlFor="daysOnVacation">Dias de Férias</label>
                             <input
-                                className={isReadOnly ? 'readOnly' : ''}
+                                className={isReadOnly ? 'readOnly' : 'form-group-input'}
                                 type="number"
                                 id="daysOnVacation"
                                 name="daysOnVacation"
@@ -331,26 +333,28 @@ function Form() {
                             <div className="signature-wrapper">
                                 <Signature
                                     ref={signatureRef}
-                                    width={500}
+                                    width={600}
                                     height={200}
-                                    instructions="Assine no campo acima"
+                                    className="signature-field"
+                                    instructions="Assine neste campo"
                                 />
+
+
+
                             </div>
 
-                            <div className='signature-area-image'>
+                            <div className='signature-area-save'>
                                 <img ref={imgRef} className="image full-width" />
                             </div>
                         </div>
 
 
+                        <div className="signature-buttons">
+                            <input className="form-btn" type="button" value="Reiniciar" onClick={reset} />
+                            <input className="form-btn" type="button" value="Salvar assinatura" onClick={onGetImage} />
+                        </div>
 
 
-                        <input type="button" value="Reiniciar" onClick={reset} />
-                        <input
-                            type="button"
-                            value="Salvar assinatura"
-                            onClick={onGetImage}
-                        />
 
 
                     </div>
@@ -358,6 +362,9 @@ function Form() {
 
 
                     <button type="submit" className="form-btn-submit">Enviar Solicitação</button>
+
+
+
                 </form>
             </div >
         </main >
