@@ -55,7 +55,7 @@
     background: none;
     border: none;
     font-size: 2rem;
-    color: #89978c;
+    color: #ad3636;
     cursor: pointer;
     width: 40px;
     height: 40px;
@@ -67,8 +67,7 @@
 }
 
 .pro-info-close:hover {
-    background-color: #f0f2f0;
-    color: #2d3d2e;
+    background-color: #ffeeee;
 }
 
 .pro-info-photo {
@@ -131,8 +130,8 @@
 }
 
 .pro-info-status.on-vacation {
-    background-color: #c6d3c9;
-    color: #2d3d2e;
+    background-color: rgb(218, 225, 255);
+    color: var(--on-vacation);
 }
 
 .pro-info-status.green {
@@ -152,8 +151,8 @@
 
 .pro-info-btn-close {
     margin-top: 1.5rem;
-    background-color: #c6d3c9;
-    color: #2d3d2e;
+    background-color: rgb(187, 200, 255);
+    color: rgb(76, 96, 182);
     border: none;
     padding: 0.75rem 2rem;
     border-radius: 8px;
@@ -164,7 +163,7 @@
 }
 
 .pro-info-btn-close:hover {
-    background-color: #b0bfb2;
+    background-color: rgb(154, 162, 201);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(139, 151, 140, 0.25);
 }

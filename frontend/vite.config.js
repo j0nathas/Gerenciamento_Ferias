@@ -12,4 +12,7 @@ export default defineConfig({
     host: true,  // escuta em 0.0.0.0 (toda a rede)
     port: 5173
   },
+  resolve: {
+    conditions: [],  // remove as restrições de exports
+  },
 })

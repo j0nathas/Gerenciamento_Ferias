@@ -77,7 +77,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 30px;
+    padding: 20px;
     gap: 20px;
 }
 
@@ -90,6 +90,7 @@
 .form-group {
     display: flex;
     flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 100%;
     gap: 8px;
 }
@@ -99,25 +100,90 @@
     color: var(--primary-dark);
 }
 
-.form-group input,
-.form-group select {
+
+.form-group-input,
+.readOnly {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 15px;
-    border: 1px solid rgb(207, 207, 207);
+    border: 2px solid rgb(231, 231, 231);
     border-radius: 15px;
+    box-shadow: 6px 6px 0px 1px rgba(0, 0, 0, 0.05);
 }
+
+
+.form-group-input:focus {
+    border: 2px solid rgb(189, 148, 243);
+    background-color: rgb(251, 250, 253);
+    outline: none;
+    box-shadow: 6px 6px 0px 1px rgba(139, 22, 235, 0.05);
+}
+
 
 .readOnly {
     background-color: rgb(231, 235, 255);
     color: rgb(148, 164, 243);
     font-weight: bold;
+    cursor: no-drop;
+}
+
+.readOnly:focus {
+    outline: none;
+    border: 1px solid rgb(16, 52, 212);
 }
 
 .readOnly::placeholder {
     color: rgb(148, 164, 243);
 }
 
+.signature-wrapper {
+    height: 100%;
+    border: 3px dotted rgb(189, 186, 240);
+    background-color: rgb(253, 253, 253);
+    border-radius: 15px;
+    text-align: center;
+}
+
 .signature-area {
-    display: inline-flex;
+    display: grid;
+    grid-template-columns: AUTO AUTO;
     align-items: center;
-    margin-top: 24px;
+    justify-content: space-around;
+}
+
+.signature-area-save {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 600px;
+    border-radius: 15px;
+    border: 1px solid rgb(240, 240, 240);
+    background-color: rgb(243, 243, 255);
+    color: rgb(79, 79, 231);
+}
+
+.signature-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.form-btn {
+    padding: 12px 30px;
+    background-color: rgb(79, 79, 231);
+    color: rgb(230, 230, 255);
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-btn-submit {
+    all: unset;
+    margin-top: 10px;
+    padding: 30px 30px;
+    align-self: end;
+    background-color: rgb(79, 79, 231);
+    border-radius: 25px;
+    color: rgb(230, 230, 255);
 }
