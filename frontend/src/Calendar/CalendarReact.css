@@ -177,8 +177,8 @@
 }
 
 .gantt-list-row.selected {
-    background: #b3c4b7;
-    color: #f8f8f2;
+    background: #c8c1f3;
+    color: #684ea5;
     font-weight: bold;
     font-size: 0.95rem;
 }

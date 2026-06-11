@@ -70,7 +70,7 @@ export default function CalendarReact() {
 
     const [selectedEmployer, setSelectedEmployer] = useState(null);
     const [editMode, setEditMode] = useState(false);
-    const [view, setView] = useState(VIEWS[1]);
+    const [view, setView] = useState(VIEWS[2]);
     const calendarRef = useRef(null);
     const controlsRef = useRef(null);
     const [ganttHeight, setGanttHeight] = useState(0);
