@@ -5,7 +5,9 @@ import CalendarIcon from '/img/calendar.svg?react'
 import ChartIcon from '/img/chart.svg?react'
 import FormIcon from '/img/form.svg?react'
 import Building from '/img/building.svg?react'
+import ListIcon from '/img/list.svg?react'
 import Header from '../Header/Header.jsx'
+import SupervisorForms from '../SupervisorForms/SupervisorForms.jsx'
 
 
 
@@ -113,10 +115,11 @@ export const profilesByState = Object.keys(mapLegend).reduce((acc, state) => {
 
 
 const btnSelect = [
-  { id: 1, path: '/home', title: 'Home', icon: HomeIcon },
-  { id: 2, path: '/calendar', title: 'Calendário', icon: CalendarIcon },
-  { id: 3, path: '/charts', title: 'Gráfico', icon: ChartIcon },
-  { id: 4, path: '/form', title: 'Formulário', icon: FormIcon },
+  { id: 1, path: '/home', title: 'Home', icon: HomeIcon, component: HomePage },
+  { id: 2, path: '/calendar', title: 'Calendário', icon: CalendarIcon, component: CalendarReact },
+  { id: 3, path: '/charts', title: 'Gráfico', icon: ChartIcon, component: Charts },
+  { id: 4, path: '/supForms', title: 'Aprovações', icon: ListIcon, component: SupervisorForms },
+  { id: 5, path: '/form', title: 'Formulário', icon: FormIcon, component: Form },
 ]
 
 function Layout() {
@@ -150,10 +153,11 @@ function Layout() {
 
 
         <Routes>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/calendar" element={<CalendarReact />} />
-          <Route path="/charts" element={<Charts />} />
-          <Route path="/form" element={<Form />} />
+          {
+            btnSelect.map((btn) => (
+              <Route path={btn.path} element={<btn.component />} />
+            ))
+          }
         </Routes>
       </div>
     </>

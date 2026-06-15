@@ -1,0 +1,50 @@
+.container-listForms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.listForms-pages {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0.3rem 0;
+}
+
+.listForms-pages-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 15px;
+    transition: 0.1s;
+    border-bottom: 1px solid gray;
+}
+
+.listForms-pages-btn.active {
+    color: #4a6ae4;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 5px solid #4a6ae4;
+}
+
+.background-forms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.container-not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.not-found-message {
+    font-size: 22px;
+    color: rgb(142, 123, 235);
+}

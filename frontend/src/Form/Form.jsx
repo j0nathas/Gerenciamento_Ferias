@@ -1,12 +1,13 @@
 import './Form.css';
 import { useState, useRef } from 'react';
 import Signature from '@lemonadejs/signature/dist/react';
-import { employers } from '../App/App';
 import SaveIcon from '/img/save.svg?react';
 import SavedIcon from '/img/saved.svg?react';
 import ResetIcon from '/img/reset.svg?react';
 import TrashIcon from '/img/trash.svg?react';
 import { Toaster, toast } from 'react-hot-toast';
+import { employers } from '../App/App';
+import { forms } from '../SupervisorForms/SupervisorForms';
 
 const vacationOptions = [
     { id: 'daysVacationFull', label: 'Férias Completas (30 dias)', days: 30, isReadOnly: true },
@@ -175,6 +176,8 @@ function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        forms.push(formData);
+        toast.success("Formulário enviado!")
         console.log('Dados do formulário:', formData);
     };
 
