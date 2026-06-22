@@ -1,6 +1,7 @@
-import { forms } from '../SupervisorForms'
 
-export default function FormsPending() {
+import { FormCard } from '../SupervisorForms';
+
+export default function FormsPending({ forms = [] }) {
     return (
         <>
             {forms.length === 0 ? (
@@ -9,15 +10,7 @@ export default function FormsPending() {
                     <h1 className='not-found-message'>Nenhum formulário novo encontrado!</h1>
                 </div>
             ) : (
-                forms.map((form) => (
-                    <div key={form.id}>
-                        <p>{form.employee}</p>
-                        <p>{form.re}</p>
-                        <p>{form.vacationType}</p>
-                        <p>{form.startDate}</p>
-                        <p>{form.daysOnVacation}</p>
-                    </div>
-                ))
+                <FormCard forms={forms} />
             )}
         </>
     )

@@ -12,10 +12,14 @@
 
 .gantt-wrapper {
     flex: 1;
-    min-height: 0;
+    height: 20rem;
     border-radius: 20px;
-    overflow: hidden;
+    overflow: auto;
     border: solid 2px rgb(226, 226, 226);
+}
+
+._CZjuD {
+    overflow: auto;
 }
 
 /* Linha superior (ano / mês) */
@@ -43,35 +47,62 @@
     border-radius: 20px;
 }
 
+.calendar-view.editMode {
+    background-color: #eeffe7;
+}
+
 .card-sectors-select-button {
-    font: inherit;
-    background-color: #f0f0f0;
-    border: 0;
-    color: #242424;
-    border-radius: 0.5em;
-    font-size: 1.35rem;
-    padding: 0.375em 1em;
-    font-weight: 600;
-    text-shadow: 0 0.0625em 0 #fff;
-    box-shadow: inset 0 0.0625em 0 0 #f4f4f4, 0 0.0625em 0 0 #efefef,
-        0 0.125em 0 0 #ececec, 0 0.25em 0 0 #e0e0e0, 0 0.3125em 0 0 #dedede,
-        0 0.375em 0 0 #dcdcdc, 0 0.425em 0 0 #cacaca, 0 0.425em 0.5em 0 #cecece;
-    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
     cursor: pointer;
+    background-color: white;
+    border: 2px solid rgb(221, 221, 221);
+    transition: 0.2s;
 }
 
-.card-sectors-select-button:hover {}
+.card-sectors-select-button:hover {
+    background-color: #f3f3ff;
+    color: #362fff;
 
-.card-sectors-select-button:active,
+}
+
+.card-sectors-select-button:active {
+    background-color: #bebcff;
+    border: 2px solid #cfcdff;
+    color: #362fff;
+}
+
 .card-sectors-select-button.active {
-    color: #2b25a1;
-    text-shadow: 0 0.0625em 0 #9e99ff;
-    translate: 0 0.225em;
-    background-color: #cfcdff;
-    box-shadow: inset 0 0.03em 0 0 #bcb9f0, 0 0.03em 0 0 #b3b0e4,
-        0 0.0625em 0 0 #bab7ec, 0 0.125em 0 0 #bab7ec, 0 0.125em 0 0 #b4b1e6,
-        0 0.2em 0 0 #aba8da, 0 0.225em 0 0 #a29fce, 0 0.225em 0.375em 0 #a5a3d3;
+    background-color: #bebcff;
+    border: 2px solid #cfcdff;
+    color: #362fff;
+    font-weight: bold;
 }
+
+.card-sectors-select-button.editMode {
+    background-color: rgb(182, 255, 182);
+    color: #256e08;
+    border: 2px solid #4cca1a;
+}
+
+.calendar-view.editMode .card-sectors-select-button:hover {
+    background-color: rgb(207, 255, 207);
+    color: #256e08;
+    border: 2px solid rgb(186, 255, 186);
+}
+
+.card-sectors-select-button.activeEdit {
+    background-color: rgb(182, 255, 182);
+    color: #256e08;
+    border: 2px solid #4cca1a;
+    border-radius: 25px 25px 0px 0px;
+    font-weight: bold;
+}
+
 
 /* ── Toggle de ViewMode ── */
 .calendar-view-toggle {
@@ -80,20 +111,38 @@
 }
 
 .card-sectors-zoom-button {
-    all: unset;
-    color: #1f4bdb;
-    padding: 0.2rem;
-    transition: 0.2s;
+    padding: 1rem;
+    border-radius: 50%;
     cursor: pointer;
+    background-color: white;
+    border: 2px solid rgb(221, 221, 221);
+    transition: 0.2s;
+}
+
+.calendar-view.editMode .card-sectors-zoom-button:hover {
+    background-color: rgb(224, 252, 224);
+    color: #256e08;
+    border: 2px solid rgb(166, 190, 166);
 }
 
 .card-sectors-zoom-button:active {
-    color: #c1d0c5;
+    background-color: #bebcff;
+    border: 2px solid #cfcdff;
+    color: #362fff;
+    font-weight: bold;
 }
 
 .card-sectors-zoom-button:hover {
-    transform: scale(1.05);
-    color: #7d8780;
+    background-color: #f3f3ff;
+    color: #362fff;
+}
+
+.edit-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: max-content;
+    height: max-content;
 }
 
 
@@ -181,4 +230,9 @@
     color: #684ea5;
     font-weight: bold;
     font-size: 0.95rem;
+}
+
+._3eULf {
+    height: 100%;
+    overflow-x: scroll;
 }

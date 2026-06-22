@@ -84,7 +84,7 @@ function HomePage() {
               {Object.entries(mapLegend).map(([key, { label }]) => (
                 <article className='legend' key={key}>
                   <div className={`${key}-legend`}></div>
-                  <h3 className='legend-text'>{label}</h3>
+                  <h3 className='legend-text text-sm'>{label}</h3>
                 </article>
               ))}
             </section>

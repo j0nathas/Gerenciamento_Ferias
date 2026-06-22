@@ -7,7 +7,6 @@ import ResetIcon from '/img/reset.svg?react';
 import TrashIcon from '/img/trash.svg?react';
 import { Toaster, toast } from 'react-hot-toast';
 import { employers } from '../App/App';
-import { forms } from '../SupervisorForms/SupervisorForms';
 
 const vacationOptions = [
     { id: 'daysVacationFull', label: 'Férias Completas (30 dias)', days: 30, isReadOnly: true },
@@ -16,7 +15,7 @@ const vacationOptions = [
     { id: 'daysVacationThirdUse', label: '3ª fruição (mínimo 5 dias)', days: 5, isReadOnly: false },
 ];
 
-function Form() {
+function Form({ setForms }) {
     const signatureRef = useRef(null);
     const imgRef = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +28,7 @@ function Form() {
     };
 
     const [formData, setFormData] = useState({
+        date: '',
         re: '',
         employee: '',
         startDate: '',
@@ -176,9 +176,18 @@ function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        forms.push(formData);
-        toast.success("Formulário enviado!")
-        console.log('Dados do formulário:', formData);
+        const dataAtual = new Date();
+
+        const formulario = {
+            ...formData,
+            date: dataAtual
+        };
+
+        setFormData(formulario);
+        setForms(prev => [...prev, formulario]);
+
+        toast.success("Formulário enviado!");
+        console.log('Dados do formulário:', formulario);
     };
 
     return (

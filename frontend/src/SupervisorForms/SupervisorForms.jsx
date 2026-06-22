@@ -2,10 +2,10 @@ import '../SupervisorForms/SupervisorForms.css'
 import notFoundImg from '/img/not-found-form.avif';
 import FormsPending from './Guides/Pending.jsx';
 import FormsApproved from './Guides/Approved.jsx';
+import EmployeeCard from './EmployeeCard.jsx';
 import { useState } from 'react';
 
 
-export const forms = [];
 
 const ListFormsPage = [
     { name: "Pendentes", title: "pending" },
@@ -13,7 +13,7 @@ const ListFormsPage = [
 ];
 
 
-export default function SupervisorForms() {
+export default function SupervisorForms({ forms }) {
 
     const [listForm, setListForm] = useState(ListFormsPage[0].title);
 
@@ -28,10 +28,20 @@ export default function SupervisorForms() {
                 </div>
 
                 <div className="background-forms">
-                    {listForm === 'pending' ? <FormsPending /> : <FormsApproved />}
+                    {listForm === 'pending' ? <FormsPending forms={forms} /> : <FormsApproved />}
                 </div>
             </main>
 
+        </>
+    )
+}
+
+export function FormCard({ forms }) {
+    return (
+        <>
+            <div className='container-forms'>
+                {forms.map((form) => (<EmployeeCard key={form.date} form={form} photoUrl={'/img/1835.avif'} />))}
+            </div>
         </>
     )
 }

@@ -1,0 +1,300 @@
+.vticket {
+    display: flex;
+    width: 100%;
+    max-width: 680px;
+    height: min-content;
+    background: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 0 5px 3px rgba(31, 35, 71, 0.08);
+    overflow: hidden;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.vticket::before {
+    top: -12px;
+}
+
+.vticket::after {
+    bottom: -12px;
+}
+
+.vticket-main {
+    flex: 1;
+    height: max-content;
+    position: relative;
+}
+
+.vticket-header {
+    background: #c1c8ff;
+    padding: 14px 28px;
+    border-radius: 0px 0px 20px;
+}
+
+.vticket-header-title {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.vticket-body {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.vticket-route {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.vticket-stop {
+    display: flex;
+    flex-direction: column;
+    min-width: 78px;
+}
+
+.vticket-stop-end {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.vticket-stop-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #8A8FB8;
+    margin-bottom: 4px;
+}
+
+.vticket-stop-date {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1F2347;
+    line-height: 1.1;
+}
+
+.vticket-stop-year {
+    font-size: 12px;
+    color: #8A8FB8;
+    margin-top: 2px;
+}
+
+.vticket-path {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 6px;
+}
+
+.vticket-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #acacac;
+    flex-shrink: 0;
+}
+
+.vticket-line {
+    width: 0.5rem;
+    height: 1px;
+    background: repeating-linear-gradient(to right,
+            #b8b8b8 0,
+            #a3a3a3 4px,
+            transparent 4px,
+            transparent 8px);
+}
+
+.vticket-plane {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    transform: rotate(90deg);
+}
+
+.vticket-divider {
+    height: 1px;
+    background: #EEF0FC;
+    margin: 20px 0 16px;
+}
+
+.vticket-details {
+    display: flex;
+    gap: 28px;
+}
+
+.vticket-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vticket-field-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #8A8FB8;
+    margin-bottom: 4px;
+}
+
+.vticket-field-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2347;
+}
+
+.vticket-stub {
+    width: max-content;
+    background: #F4F5FE;
+    border-left: 3px dashed #C7CEFB;
+    padding: 0px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+}
+
+.vticket-stub-photo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.178);
+}
+
+.vticket-stub-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.vticket-stub-field-text {
+    color: gray;
+    font-size: 0.8rem;
+}
+
+.vticket-buttons {
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.vticket-stub-btn,
+.vticket-field-btn {
+    padding: 0.5rem 0.9rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: 0.2s;
+    cursor: pointer;
+    height: 100%;
+}
+
+.vticket-stub-btn:hover,
+.vticket-field-btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-details {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.btn-details:active {
+    background-color: rgb(185, 185, 185);
+    color: rgb(255, 255, 255);
+    transform: scale(0.95);
+}
+
+.btn-accept {
+    background-color: rgb(213, 255, 213);
+    color: green;
+}
+
+.btn-accept:active {
+    background-color: rgb(147, 221, 147);
+    color: green;
+    transform: scale(0.95);
+
+}
+
+.btn-refuse {
+    background-color: rgb(255, 213, 213);
+    color: rgb(155, 0, 0);
+}
+
+.btn-refuse:active {
+    background-color: rgb(255, 153, 153);
+    color: rgb(155, 0, 0);
+    transform: scale(0.95);
+}
+
+.vticket-stub-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #8A8FB8;
+    margin-bottom: 4px;
+}
+
+.vticket-stub-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1F2347;
+}
+
+.back-text-point-yellow {
+    background-color: rgb(255, 253, 221);
+    color: rgb(151, 131, 16);
+}
+
+.text-point-yellow {
+    color: rgb(151, 131, 16);
+}
+
+.back-text-point-orange {
+    background-color: rgb(250, 230, 208);
+    color: rgb(190, 76, 0);
+}
+
+.text-point-orange {
+    color: rgb(190, 76, 0);
+}
+
+.back-text-point-red {
+    background-color: rgb(248, 201, 201);
+    color: rgb(138, 10, 10);
+}
+
+.text-point-red {
+    color: rgb(138, 10, 10);
+}
+
+
+
+
+
+@media (max-width: 600px) {
+    .vticket {
+        flex-direction: column;
+    }
+
+    .vticket-stub {
+        width: 100%;
+        border-left: none;
+        border-top: 2px dashed #C7CEFB;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .vticket-barcode {
+        display: none;
+    }
+}

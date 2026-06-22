@@ -24,16 +24,16 @@ export const employers = [
     aquisitivo_inicio: '2025-08-21', aquisitivo_Final: '2026-08-20', sector: 'LANTERNA', state: 'green',
   },
   {
-    re: 3333, name: 'Eliel da Silva', photo: '/img/aprendiz.avif', shift: 'ADM', startDate: '', endDate: '',
-    aquisitivo_inicio: '2025-08-21', aquisitivo_Final: '2026-08-20', sector: 'LANTERNA', state: 'green'
+    re: 3333, name: 'Eliel da Silva', photo: '/img/aprendiz.avif', shift: 'ADM', startDate: '2026-05-04', endDate: '2026-05-29',
+    aquisitivo_inicio: '2025-08-21', aquisitivo_Final: '2026-08-20', sector: 'LANTERNA', state: 'on-vacation'
   },
   {
     re: 1510, name: 'Jonathan Neres Veloso', photo: '/img/1510.avif', shift: 'ADM', startDate: '2026-05-04', endDate: '2026-05-29',
     aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-03-17', sector: 'LANTERNA', state: 'on-vacation',
   },
   {
-    re: 922, name: 'Leandro da Silva Almeida', photo: '/img/922.avif', shift: 'ADM', startDate: '', endDate: '',
-    aquisitivo_inicio: '2025-03-21', aquisitivo_Final: '2026-03-20', sector: 'LANTERNA', state: 'yellow',
+    re: 922, name: 'Leandro da Silva Almeida', photo: '/img/922.avif', shift: 'ADM', startDate: '2026-05-04', endDate: '2026-05-29',
+    aquisitivo_inicio: '2025-03-21', aquisitivo_Final: '2026-03-20', sector: 'LANTERNA', state: 'on-vacation',
   },
   {
     re: 1781, name: 'Victor Fernando Santos Nunes', photo: '/img/1781.avif', shift: 'ADM', startDate: '', endDate: '',
@@ -48,7 +48,7 @@ export const employers = [
     aquisitivo_inicio: '2025-04-30', aquisitivo_Final: '2026-05-01', sector: 'LANTERNA', state: 'yellow'
   },
   {
-    re: 1437, name: 'Pedro da Silva', photo: '/img/1437.avif', shift: 'ADM', startDate: '', endDate: '',
+    re: 1854, name: 'Pedro da Silva', photo: '/img/1437.avif', shift: 'ADM', startDate: '', endDate: '',
     aquisitivo_inicio: '2025-07-15', aquisitivo_Final: '2026-07-14', sector: 'LANTERNA', state: 'green'
   },
   {
@@ -126,6 +126,7 @@ function Layout() {
 
   const navigate = useNavigate("/home")
   const location = useLocation()
+  const [forms, setForms] = useState([]);
 
   return (
     <>
@@ -151,13 +152,38 @@ function Layout() {
         </div>
 
 
-
         <Routes>
-          {
-            btnSelect.map((btn) => (
-              <Route path={btn.path} element={<btn.component />} />
-            ))
-          }
+          {btnSelect.map((btn) => {
+            const Component = btn.component;
+
+            if (Component === SupervisorForms) {
+              return (
+                <Route
+                  key={btn.path}
+                  path={btn.path}
+                  element={<Component forms={forms} />}
+                />
+              );
+            }
+
+            if (Component === Form) {
+              return (
+                <Route
+                  key={btn.path}
+                  path={btn.path}
+                  element={<Component setForms={setForms} />}
+                />
+              );
+            }
+
+            return (
+              <Route
+                key={btn.path}
+                path={btn.path}
+                element={<Component />}
+              />
+            );
+          })}
         </Routes>
       </div>
     </>

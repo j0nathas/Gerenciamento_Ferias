@@ -8,6 +8,9 @@ import ViewIcon from '/img/view.svg?react';
 import EditIcon from '/img/edit.svg?react';
 import ZoomInIcon from '/img/zoom-in.svg?react';
 import ZoomOutIcon from '/img/zoom-out.svg?react';
+import PlusIcon from '/img/plus.svg?react';
+import useDragScroll from './useDragScroll.jsx';
+import AdddEmployee from './AddEmployee/AddEmployee.jsx';
 
 const CustomTaskListHeader = ({ headerHeight, rowWidth, fontFamily, fontSize }) => (
     <div
@@ -74,6 +77,8 @@ export default function CalendarReact() {
     const calendarRef = useRef(null);
     const controlsRef = useRef(null);
     const [ganttHeight, setGanttHeight] = useState(0);
+    const ganttWrapperRef = useDragScroll();
+    const [addEmployee, setAddEmployee] = useState(false);
 
 
 
@@ -99,7 +104,7 @@ export default function CalendarReact() {
                 isDisabled: false,
             }));
 
-        for (let i = 0; realTasks.length < 14; i++) {
+        for (let i = 0; realTasks.length < 30; i++) {
             realTasks.push({
                 start: new Date(),
                 end: new Date(),
@@ -122,31 +127,42 @@ export default function CalendarReact() {
     return (
         <>
             <div className="calendar-wrapper" ref={calendarRef}>
-                <div className='calendar-view' ref={controlsRef}>
+                <div className={`calendar-view ${editMode ? 'editMode' : ''}`} ref={controlsRef}>
                     <div className="calendar-view-toggle">
                         {VIEWS.map(v => (
                             <button
                                 key={v.value}
                                 onClick={() => setView(v)}
-                                className={`card-sectors-select-button ${view.value === v.value ? 'active' : ''}`}
+                                className={`card-sectors-select-button ${view.value === v.value ? 'active' : ''} ${editMode && view.value === v.value ? 'editMode' : ''}`}
                             >
                                 {v.label}
                             </button>
                         ))}
                     </div>
 
-                    <div className="calendar-view-toggle">
+                    <div className={`calendar-view-toggle`}>
 
-                        <button className='card-sectors-zoom-button' onClick={() => setView(prev => ({ ...prev, columnWidth: prev.columnWidth + 10 }))}>
+                        {
+                            editMode && (
+                                <div className='edit-container'>
+                                    <button className={`card-sectors-select-button ${addEmployee ? 'activeEdit' : ''}`} onClick={() => setAddEmployee((prev) => !prev)}>
+                                        <PlusIcon width={15} height={15} />
+                                        Simular Colaborador
+                                    </button>
+                                    {addEmployee ? <AdddEmployee setAddEmployee={setAddEmployee} setEmployees={setEmployees} /> : ''}
+                                </div>
+                            )
+                        }
+                        <button className={`card-sectors-zoom-button ${editMode ? 'editMode' : ''}`} onClick={() => setView(prev => ({ ...prev, columnWidth: prev.columnWidth + 10 }))}>
                             <ZoomInIcon width={20} height={20} />
                         </button>
-                        <button className='card-sectors-zoom-button' onClick={() => setView(prev => ({ ...prev, columnWidth: Math.max(10, prev.columnWidth - 10) }))}>
+                        <button className={`card-sectors-zoom-button ${editMode ? 'editMode' : ''}`} onClick={() => setView(prev => ({ ...prev, columnWidth: Math.max(10, prev.columnWidth - 10) }))}>
                             <ZoomOutIcon width={20} height={20} />
                         </button>
 
                         <button
                             onClick={() => setEditMode(prev => !prev)}
-                            className={`card-sectors-select-button ${editMode ? 'active' : ''}`}
+                            className={`card-sectors-select-button ${editMode ? 'editMode' : ''}`}
                         >
                             {editMode
                                 ? <EditIcon width={25} height={25} />
@@ -156,7 +172,7 @@ export default function CalendarReact() {
                     </div>
                 </div>
 
-                <div className="gantt-wrapper">
+                <div className="gantt-wrapper" ref={ganttWrapperRef}>
                     <Gantt
                         locale='pt-br'
                         tasks={employees}
