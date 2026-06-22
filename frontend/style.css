@@ -1,4 +1,5 @@
 @import url('https://fontlibrary.org');
+@import "tailwindcss";
 
 #root {
     display: flex;

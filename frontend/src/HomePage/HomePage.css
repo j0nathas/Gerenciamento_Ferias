@@ -63,7 +63,6 @@
 
 .legend-text {
     margin: 0;
-    font-size: 0.95rem;
     color: #2d2f3d;
     font-weight: 500;
 }
@@ -159,8 +158,8 @@
 }
 
 .card-sectors-profiles {
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
     display: inline-flex;
     gap: 0.7rem;
     padding: 2rem;
@@ -173,10 +172,13 @@
     background-color: #e7eaff;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.01);
     border-radius: 50px;
-    display: inline-flex;
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    grid-template-rows: max-content;
     flex-wrap: wrap;
+    width: 28%;
     max-width: 28%;
-    gap: 0.7rem;
+    gap: 2%;
     overflow: auto;
     padding: 1rem;
     align-items: start;
@@ -190,22 +192,19 @@
 
 
 .card-sectors-profiles-job {
-    display: inline-flex;
-    justify-content: start;
-    align-content: start;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, 19%);
+    grid-template-rows: max-content;
     flex: 1;
-    flex-wrap: wrap;
-    gap: 0.7rem;
+    gap: 1%;
     overflow: auto;
-    padding: 1rem;
 }
 
 .card-sectors-profile {
     display: flex;
     align-items: center;
-    width: 11rem;
-    height: 5rem;
+    width: 100%;
+    height: 7rem;
     gap: 1rem;
     padding: 1rem;
     background-color: rgb(255, 255, 255);

@@ -5,7 +5,9 @@ import CalendarIcon from '/img/calendar.svg?react'
 import ChartIcon from '/img/chart.svg?react'
 import FormIcon from '/img/form.svg?react'
 import Building from '/img/building.svg?react'
+import ListIcon from '/img/list.svg?react'
 import Header from '../Header/Header.jsx'
+import SupervisorForms from '../SupervisorForms/SupervisorForms.jsx'
 
 
 
@@ -22,16 +24,16 @@ export const employers = [
     aquisitivo_inicio: '2025-08-21', aquisitivo_Final: '2026-08-20', sector: 'LANTERNA', state: 'green',
   },
   {
-    re: 3333, name: 'Eliel da Silva', photo: '/img/aprendiz.avif', shift: 'ADM', startDate: '', endDate: '',
-    aquisitivo_inicio: '2025-08-21', aquisitivo_Final: '2026-08-20', sector: 'LANTERNA', state: 'green'
+    re: 3333, name: 'Eliel da Silva', photo: '/img/aprendiz.avif', shift: 'ADM', startDate: '2026-05-04', endDate: '2026-05-29',
+    aquisitivo_inicio: '2025-08-21', aquisitivo_Final: '2026-08-20', sector: 'LANTERNA', state: 'on-vacation'
   },
   {
     re: 1510, name: 'Jonathan Neres Veloso', photo: '/img/1510.avif', shift: 'ADM', startDate: '2026-05-04', endDate: '2026-05-29',
     aquisitivo_inicio: '2025-02-17', aquisitivo_Final: '2026-03-17', sector: 'LANTERNA', state: 'on-vacation',
   },
   {
-    re: 922, name: 'Leandro da Silva Almeida', photo: '/img/922.avif', shift: 'ADM', startDate: '', endDate: '',
-    aquisitivo_inicio: '2025-03-21', aquisitivo_Final: '2026-03-20', sector: 'LANTERNA', state: 'yellow',
+    re: 922, name: 'Leandro da Silva Almeida', photo: '/img/922.avif', shift: 'ADM', startDate: '2026-05-04', endDate: '2026-05-29',
+    aquisitivo_inicio: '2025-03-21', aquisitivo_Final: '2026-03-20', sector: 'LANTERNA', state: 'on-vacation',
   },
   {
     re: 1781, name: 'Victor Fernando Santos Nunes', photo: '/img/1781.avif', shift: 'ADM', startDate: '', endDate: '',
@@ -46,7 +48,7 @@ export const employers = [
     aquisitivo_inicio: '2025-04-30', aquisitivo_Final: '2026-05-01', sector: 'LANTERNA', state: 'yellow'
   },
   {
-    re: 1437, name: 'Pedro da Silva', photo: '/img/1437.avif', shift: 'ADM', startDate: '', endDate: '',
+    re: 1854, name: 'Pedro da Silva', photo: '/img/1437.avif', shift: 'ADM', startDate: '', endDate: '',
     aquisitivo_inicio: '2025-07-15', aquisitivo_Final: '2026-07-14', sector: 'LANTERNA', state: 'green'
   },
   {
@@ -113,16 +115,18 @@ export const profilesByState = Object.keys(mapLegend).reduce((acc, state) => {
 
 
 const btnSelect = [
-  { id: 1, path: '/home', title: 'Home', icon: HomeIcon },
-  { id: 2, path: '/calendar', title: 'Calendário', icon: CalendarIcon },
-  { id: 3, path: '/charts', title: 'Gráfico', icon: ChartIcon },
-  { id: 4, path: '/form', title: 'Formulário', icon: FormIcon },
+  { id: 1, path: '/home', title: 'Home', icon: HomeIcon, component: HomePage },
+  { id: 2, path: '/calendar', title: 'Calendário', icon: CalendarIcon, component: CalendarReact },
+  { id: 3, path: '/charts', title: 'Gráfico', icon: ChartIcon, component: Charts },
+  { id: 4, path: '/supForms', title: 'Aprovações', icon: ListIcon, component: SupervisorForms },
+  { id: 5, path: '/form', title: 'Formulário', icon: FormIcon, component: Form },
 ]
 
 function Layout() {
 
   const navigate = useNavigate("/home")
   const location = useLocation()
+  const [forms, setForms] = useState([]);
 
   return (
     <>
@@ -148,12 +152,38 @@ function Layout() {
         </div>
 
 
-
         <Routes>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/calendar" element={<CalendarReact />} />
-          <Route path="/charts" element={<Charts />} />
-          <Route path="/form" element={<Form />} />
+          {btnSelect.map((btn) => {
+            const Component = btn.component;
+
+            if (Component === SupervisorForms) {
+              return (
+                <Route
+                  key={btn.path}
+                  path={btn.path}
+                  element={<Component forms={forms} />}
+                />
+              );
+            }
+
+            if (Component === Form) {
+              return (
+                <Route
+                  key={btn.path}
+                  path={btn.path}
+                  element={<Component setForms={setForms} />}
+                />
+              );
+            }
+
+            return (
+              <Route
+                key={btn.path}
+                path={btn.path}
+                element={<Component />}
+              />
+            );
+          })}
         </Routes>
       </div>
     </>

@@ -1,6 +1,6 @@
 :root {
     --green: #6ac27e;
-    --yellow: #fffd8ffd;
+    --yellow: #f1ed00fd;
     --red: #ff8181;
     --on-vacation: #749aed;
     --color-one: #1f4bdb;
@@ -11,8 +11,10 @@
 }
 
 .mainContainer {
-    display: inline-flex;
+    display: flex;
     flex: 1;
+    height: 100%;
+    overflow: hidden;
 }
 
 .logo-text {

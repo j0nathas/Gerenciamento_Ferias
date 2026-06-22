@@ -1,0 +1,91 @@
+.form-simulation {
+    top: 96%;
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0px 0px 25px 25px;
+    padding: 1rem;
+    gap: 0.7rem;
+    border: 2px solid rgb(231, 231, 231);
+    border-top: none;
+}
+
+.form-simulation-close {
+    align-self: end;
+    color: rgb(158, 0, 0);
+    background-color: rgb(253, 213, 213);
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.form-simulation-close:hover {
+    color: rgb(255, 33, 33);
+    background-color: rgb(255, 255, 255);
+}
+
+.form-simulation-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-simulation-label {
+    font-size: small;
+    color: gray;
+}
+
+.form-simulation-input {
+    border: 2px solid rgb(236, 236, 236);
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(250, 250, 250);
+    font-size: 0.8rem;
+}
+
+.form-simulation-input:focus {
+    outline: none;
+    border: 2px solid rgb(221, 253, 213);
+    background-color: rgb(249, 255, 249);
+}
+
+.form-simulation-submit:disabled {
+    background-color: rgba(238, 238, 238, 0.849);
+    color: rgb(197, 197, 197);
+    font-weight: bold;
+    cursor: not-allowed;
+}
+
+.form-simulation-submit:disabled:hover {
+    background-color: rgba(253, 220, 220, 0.849);
+    color: rgb(255, 185, 185);
+}
+
+.form-simulation-submit {
+    background-color: rgba(187, 255, 187, 0.849);
+    color: green;
+    font-weight: bold;
+    width: 100%;
+    padding: 0.5rem 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.form-simulation-submit:hover {
+    background-color: rgb(149, 255, 149);
+}
+
+.form-simulation-submit:active {
+    transform: scale(0.9);
+}
+
+.readOnly-simulation {
+    background-color: rgba(215, 255, 215, 0.849);
+    color: green;
+    font-weight: bold;
+    font-size: 0.8rem;
+}

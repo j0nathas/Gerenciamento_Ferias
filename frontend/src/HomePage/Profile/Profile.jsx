@@ -1,5 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 
+function formatarNome(name) {
+    const nomeFormatado = name.trim().split(/\s+/);
+
+    if (nomeFormatado.length <= 1) {
+        return nomeFormatado[0];
+    }
+
+    return `${nomeFormatado[0]} ${nomeFormatado[nomeFormatado.length - 1]}`;
+}
+
 function Profile({ photo, name, returnDate, state, onProfileClick, ...rest }) {
     const [visible, setVisible] = useState(false)
     const imgRef = useRef()
@@ -39,7 +49,7 @@ function Profile({ photo, name, returnDate, state, onProfileClick, ...rest }) {
             </figure>
 
             <div className="text-profile">
-                <p className="profile-name">{name}</p>
+                <p className="profile-name">{formatarNome(name)}</p>
                 {returnDate ? <p className="profile-return">{formatDate(returnDate)}</p> : null}
             </div>
         </li>
