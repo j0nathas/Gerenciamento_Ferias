@@ -8,7 +8,7 @@ export default function Header() {
     return (
         <header>
             <div className="header-logo">
-                <img src="/img/GCF-logo.png" width={130} alt="Férias" />
+                <img src="/img/GCF-logo.png" width={100} alt="Férias" />
                 <p>Gerenciamento de Férias</p>
             </div>
 

@@ -2,6 +2,7 @@ import './EmployeeCard.css';
 import { employers } from '../App/App';
 import PlaneIcon from '/img/plane.svg?react';
 import ExpandIcon from '/img/expand.svg?react';
+import { formatarNome } from '../utils/profileUtils.js'
 
 function resultState(result, text = '') {
     return {
@@ -17,16 +18,6 @@ function resultState(result, text = '') {
 function formatarData(data) {
     return `${String(data.getFullYear())}-${String(data.getMonth() + 1).padStart(2, '0')}-${String(data.getDate()).padStart(2, '0')}`;
 
-}
-
-function formatarNome(name) {
-    const nomeFormatado = name.trim().split(/\s+/);
-
-    if (nomeFormatado.length <= 1) {
-        return nomeFormatado[0];
-    }
-
-    return `${nomeFormatado[0]} ${nomeFormatado[nomeFormatado.length - 1]}`;
 }
 
 function encontrarTurno(register) {
