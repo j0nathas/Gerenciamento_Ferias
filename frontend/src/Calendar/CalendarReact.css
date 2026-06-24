@@ -48,7 +48,7 @@
 }
 
 .calendar-view.editMode {
-    background-color: #eeffe7;
+    background-color: #badeff;
 }
 
 .card-sectors-select-button {
@@ -84,21 +84,21 @@
 }
 
 .card-sectors-select-button.editMode {
-    background-color: rgb(182, 255, 182);
-    color: #256e08;
-    border: 2px solid #4cca1a;
+    background-color: #0e8bff;
+    color: #d1eaff;
+    border: 2px solid #3588d6;
 }
 
 .calendar-view.editMode .card-sectors-select-button:hover {
-    background-color: rgb(207, 255, 207);
-    color: #256e08;
-    border: 2px solid rgb(186, 255, 186);
+    background-color: #8fc9ff;
+    color: #ffffff;
+    border: 2px solid #a4d3ff;
 }
 
 .card-sectors-select-button.activeEdit {
-    background-color: rgb(182, 255, 182);
-    color: #256e08;
-    border: 2px solid #4cca1a;
+    background-color: #0e8bff;
+    color: #d1eaff;
+    border: 2px solid #3588d6;
     border-radius: 25px 25px 0px 0px;
     font-weight: bold;
 }
@@ -120,9 +120,9 @@
 }
 
 .calendar-view.editMode .card-sectors-zoom-button:hover {
-    background-color: rgb(224, 252, 224);
-    color: #256e08;
-    border: 2px solid rgb(166, 190, 166);
+    background-color: #e0f0ff;
+    color: #0084ff;
+    border: 2px solid #a4d3ff;
 }
 
 .card-sectors-zoom-button:active {
@@ -143,6 +143,11 @@
     position: relative;
     width: max-content;
     height: max-content;
+}
+
+.edit-container.activeEdit {
+    border-radius: 25px 25px 0 0;
+    box-shadow: 0px 8px 20px 10px rgba(0, 0, 0, 0.144);
 }
 
 
@@ -186,7 +191,7 @@
 
 .gantt-tooltip__progress-fill {
     height: 100%;
-    background: #3baa2c;
+    background: #0c6600;
     border-radius: 4px;
 }
 
@@ -203,26 +208,34 @@
     align-items: center;
     font-size: 1rem !important;
     font-weight: 700;
-    min-width: 200px;
+    min-width: 250px;
     background: #c8c5ff;
     color: #4a6ae4;
     border-bottom: 2px solid #4a6ae4;
     padding: 0 12px;
 }
 
+.gantt-list-header.editMode {
+    background: #badeff;
+    color: #4a92e4;
+    border-bottom: 2px solid #4a9fe4;
+}
+
 /* ── Linhas da tabela lateral ── */
 .gantt-list-row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 12px;
     cursor: pointer;
     color: #636b65;
-    min-width: 200px;
+    min-width: 250px;
     border-bottom: 1px solid #b3c4b7;
     transition: background 0.15s;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    gap: 0.5rem;
 }
 
 .gantt-list-row.selected {
@@ -232,7 +245,33 @@
     font-size: 0.95rem;
 }
 
-._3eULf {
+.gantt-list-row.selected:hover {
+    background-color: #e7e3ff;
+}
+
+
+.gantt-list-row:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.gantt-list-row.editModeSelected {
+    background: #e1f1ff;
+    color: #1c5981;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.calendar-img-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.calendar-img-profile img {
+    width: 100%;
     height: 100%;
-    overflow-x: scroll;
+    object-fit: cover;
 }

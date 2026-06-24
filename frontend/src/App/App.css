@@ -28,7 +28,7 @@
     align-items: center;
     background-color: #132769;
     width: max-content;
-    width: 5%;
+    width: 3.8%;
     z-index: 1;
     box-shadow: 2px 0px 2px 1px rgba(0, 0, 0, 0.1);
 }
@@ -64,8 +64,7 @@
 
 .selectPage.active {
     color: #ffffff;
-    background: rgb(51, 70, 179);
-    border-left: 6px solid var(--color-five);
+    background: rgb(94, 106, 173);
     opacity: 1;
 }
 

@@ -9,58 +9,10 @@ import EditIcon from '/img/edit.svg?react';
 import ZoomInIcon from '/img/zoom-in.svg?react';
 import ZoomOutIcon from '/img/zoom-out.svg?react';
 import PlusIcon from '/img/plus.svg?react';
-import useDragScroll from './useDragScroll.jsx';
+import useDragScroll from './DragScroll/UseDragScroll.jsx';
 import AdddEmployee from './AddEmployee/AddEmployee.jsx';
-
-const CustomTaskListHeader = ({ headerHeight, rowWidth, fontFamily, fontSize }) => (
-    <div
-        className="gantt-list-header"
-        style={{ height: headerHeight, width: rowWidth, fontFamily, fontSize }}
-    >
-        Colaborador
-    </div>
-);
-
-const CustomTaskListTable = ({
-    rowHeight, rowWidth, fontFamily, fontSize,
-    tasks, selectedTaskId, setSelectedTask,
-}) => (
-    <div style={{ fontFamily, fontSize }}>
-        {tasks.map(task => (
-            <div
-                key={task.id}
-                onClick={() => setSelectedTask(task.id)}
-                className={`gantt-list-row ${task.id === selectedTaskId ? 'selected' : ''}`}
-                style={{ height: rowHeight, width: rowWidth }}
-            >
-                {task.name}
-            </div>
-        ))}
-    </div>
-);
-
-const CustomTooltip = ({ task, fontSize, fontFamily }) => {
-    const start = task.start.toLocaleDateString('pt-BR');
-    const end = task.end.toLocaleDateString('pt-BR');
-
-    return (
-        <div className="gantt-tooltip" style={{ fontFamily, fontSize }}>
-            <p className="gantt-tooltip__title">{task.name}</p>
-            <p className="gantt-tooltip__date-start"><strong>Início:</strong> {start}</p>
-            <p className="gantt-tooltip__date-end"><strong>Fim:</strong> {end}</p>
-            <div className="gantt-tooltip__progress-track">
-                <div
-                    className="gantt-tooltip__progress-fill"
-                    style={{ width: `${Math.round(task.progress)}%` }}
-                />
-            </div>
-            <p className="gantt-tooltip__progress-label">{Math.round(task.progress)}%</p>
-            <p className="gantt-tooltip__progress-label">
-                {Math.round((task.end - task.start) / (1000 * 60 * 60 * 24) + 1)} dias
-            </p>
-        </div>
-    );
-};
+import { CustomTaskListHeader, CustomTaskListTable, CustomTooltip } from './Custom/CustomCalendar.jsx'
+export let editModeOut = null;
 
 const VIEWS = [
     { label: 'Dia', value: ViewMode.Day, columnWidth: 65 },
@@ -68,6 +20,18 @@ const VIEWS = [
     { label: 'Mês', value: ViewMode.Month, columnWidth: 200 },
     { label: 'Ano', value: ViewMode.Year, columnWidth: 500 },
 ];
+
+function getPastelColorFromRE(re) {
+    let hash = 0;
+
+    for (let i = 0; i < String(re).length; i++) {
+        hash = String(re).charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    const hue = Math.abs(hash) % 360;
+
+    return `hsl(${hue}, 70%, 70%)`;
+}
 
 export default function CalendarReact() {
 
@@ -79,6 +43,7 @@ export default function CalendarReact() {
     const [ganttHeight, setGanttHeight] = useState(0);
     const ganttWrapperRef = useDragScroll();
     const [addEmployee, setAddEmployee] = useState(false);
+    editModeOut = editMode;
 
 
 
@@ -86,6 +51,17 @@ export default function CalendarReact() {
         const employer = employers.find(e => String(e.re) === String(task.id.split('-')[0]));
         if (employer) setSelectedEmployer(employer);
     };
+
+    function containerName(name, photo) {
+        return (
+            <>
+                <div>
+                    <p>{name}</p>
+                    <img src={photo} width={20} height={20} alt="" />
+                </div>
+            </>
+        )
+    }
 
     const [employees, setEmployees] = useState(() => {
         const realTasks = employers
@@ -95,12 +71,17 @@ export default function CalendarReact() {
                 start: new Date(e.startDate),
                 end: new Date(e.endDate),
                 name: e.name,
+                photo: e.photo,
                 id: `${e.re}-${index}`,
                 type: 'task',
                 progress: Math.min(100, Math.max(0,
                     (new Date() - new Date(e.startDate)) /
                     (new Date(e.endDate) - new Date(e.startDate)) * 100
                 )),
+                styles: {
+                    progressColor: getPastelColorFromRE(e.re),
+                    progressSelectedColor: getPastelColorFromRE(e.re),
+                },
                 isDisabled: false,
             }));
 
@@ -144,7 +125,7 @@ export default function CalendarReact() {
 
                         {
                             editMode && (
-                                <div className='edit-container'>
+                                <div className={`edit-container ${addEmployee ? 'activeEdit' : ''}`}>
                                     <button className={`card-sectors-select-button ${addEmployee ? 'activeEdit' : ''}`} onClick={() => setAddEmployee((prev) => !prev)}>
                                         <PlusIcon width={15} height={15} />
                                         Simular Colaborador
@@ -177,19 +158,21 @@ export default function CalendarReact() {
                         locale='pt-br'
                         tasks={employees}
                         viewMode={view.value}
+                        barFill={65}
+                        rowHeight={75}
                         ganttHeight={ganttHeight}
                         onClick={editMode ? null : handleTaskClick}
                         TaskListHeader={CustomTaskListHeader}
                         TaskListTable={CustomTaskListTable}
-                        todayColor={editMode ? "#cadbcf6c" : "#cacadb6c"}
+                        todayColor={editMode ? "#c4deff6c" : "#cacadb6c"}
                         columnWidth={view.columnWidth}
                         handleWidth={editMode ? 8 : 0}
                         onDateChange={editMode
                             ? (task) => setEmployees(prev => prev.map(t => t.id === task.id ? task : t))
                             : null}
-                        barProgressColor={editMode ? "rgb(108,156,119)" : "rgb(108,111,156)"}
-                        barProgressSelectedColor={editMode ? "rgb(66, 99, 74)" : "rgb(70, 78, 197)"}
-                        barBackgroundSelectedColor={editMode ? "rgb(163, 180, 167)" : "rgb(144, 151, 255)"}
+                        barProgressColor={editMode ? "rgb(130, 182, 250)" : "rgb(108,111,156)"}
+                        barProgressSelectedColor={editMode ? "rgb(70, 109, 177)" : "rgb(70, 78, 197)"}
+                        barBackgroundSelectedColor={editMode ? "rgb(159, 196, 238)" : "rgb(144, 151, 255)"}
                         TooltipContent={CustomTooltip}
                     />
                 </div>
