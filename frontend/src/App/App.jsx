@@ -144,7 +144,7 @@ function Layout() {
                 onClick={() => navigate(btn.path)}
                 title={btn.title}
               >
-                <btn.icon width={45} height={45} />
+                <btn.icon width={38} height={38} />
               </button>
             ))
           }
